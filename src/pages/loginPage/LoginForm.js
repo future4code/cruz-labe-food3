@@ -8,7 +8,8 @@ const LoginForm = () => {
     <div>
       <form>
         <TextField
-          label={"email@email.com"}
+          label={"E-mail"}
+          placeholder={"email@email.com"}
           margin={"normal"}
           variant={"outlined"}
           type={"email"}
@@ -17,7 +18,8 @@ const LoginForm = () => {
         />
 
         <TextField
-          label={"Mínimo 6 caracteres"}
+          label={"Senha"}
+          placeholder={"Mínimo 6 caracteres"}
           variant={"outlined"}
           margin={"normal"}
           type={"password"}
