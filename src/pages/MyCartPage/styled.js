@@ -4,7 +4,7 @@ import { gray, neutralColor, primaryColor } from "../../constants/colors";
 
 export const ContainerMyCart = styled.main`
   width: 100vw;
-  height: 93vh;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
