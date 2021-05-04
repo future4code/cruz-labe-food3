@@ -1,15 +1,15 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
-import { SignUpButton } from "./styled";
+import { SaveButton } from "./styled";
 
-const SignUpForm = () => {
+const AddAddressForm = () => {
   return (
     <div>
       <form>
         <TextField
-          label={"Nome"}
-          placeholder={"Nome e sobrenome"}
+          label={"Logradouro"}
+          placeholder={"Rua / Av."}
           margin={"normal"}
           variant={"outlined"}
           type={"text"}
@@ -18,18 +18,8 @@ const SignUpForm = () => {
         />
 
         <TextField
-          label={"E-mail"}
-          placeholder={"email@email.com"}
-          margin={"normal"}
-          variant={"outlined"}
-          type={"email"}
-          required
-          fullWidth
-        />
-
-        <TextField
-          label={"CPF"}
-          placeholder={"000.000.000-00"}
+          label={"Número"}
+          placeholder={"Número"}
           margin={"normal"}
           variant={"outlined"}
           type={"number"}
@@ -38,28 +28,48 @@ const SignUpForm = () => {
         />
 
         <TextField
-          label={"Senha"}
-          placeholder={"Mínimo 6 caracteres"}
-          variant={"outlined"}
+          label={"Complemento"}
+          placeholder={"Apto. / Bloco"}
           margin={"normal"}
-          type={"password"}
+          variant={"outlined"}
+          type={"text"}
           required
           fullWidth
         />
 
         <TextField
-          label={"Confirmar"}
-          placeholder={"Confirme a senha anterior"}
-          variant={"outlined"}
+          label={"Bairro"}
+          placeholder={"Bairro"}
           margin={"normal"}
-          type={"password"}
+          variant={"outlined"}
+          type={"text"}
           required
           fullWidth
         />
-        <SignUpButton>Criar</SignUpButton>
+
+        <TextField
+          label={"Cidade"}
+          placeholder={"Cidade"}
+          margin={"normal"}
+          variant={"outlined"}
+          type={"text"}
+          required
+          fullWidth
+        />
+
+        <TextField
+          label={"Estado"}
+          placeholder={"Estado"}
+          margin={"normal"}
+          variant={"outlined"}
+          type={"text"}
+          required
+          fullWidth
+        />
+        <SaveButton>Salvar</SaveButton>
       </form>
     </div>
   );
 };
 
-export default SignUpForm;
+export default AddAddressForm;
