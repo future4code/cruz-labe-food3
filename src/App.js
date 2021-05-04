@@ -8,7 +8,7 @@ import "./assets/css/fonts.css";
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-     
+  
     </ThemeProvider>
   );
 };
