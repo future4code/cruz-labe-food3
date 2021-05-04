@@ -8,7 +8,7 @@ import AddAddressPage from "./pages/addAddressPage/AddAddressPage";
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AddAddressPage />
+      <SignUpPage />
     </ThemeProvider>
   );
 };
