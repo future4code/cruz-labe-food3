@@ -1,12 +1,14 @@
 import React from "react";
 import EditIcon from "../../images/edit-icon.png";
 import CardOrder from "./CardOrder";
+import Footer from "../../components/footer/Footer";
 import {
   MainContainer,
   DataContainer,
   AddressContainer,
   EditContainer,
   OrdersHistoryContainer,
+  FooterContainer,
 } from "./styled";
 const ProfilePage = () => {
   return (
@@ -14,7 +16,7 @@ const ProfilePage = () => {
       <MainContainer>
         <DataContainer>
           <EditContainer>
-            <p> {"Nome"}</p>
+            <p> {"Paula Lopes"}</p>
             <button>
               <img src={EditIcon} />
             </button>
@@ -34,6 +36,9 @@ const ProfilePage = () => {
         <p>Histórico de Pedidos</p>
         <CardOrder />
       </OrdersHistoryContainer>
+      <FooterContainer>
+        <Footer profile />
+      </FooterContainer>
     </>
   );
 };
