@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from "@material-ui/icons/Search";
 
 export const MainContainer = styled.main`
   display: flex;
@@ -28,15 +28,17 @@ export const Header = styled.header`
 `;
 
 export const InputArea = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 
 export const SearchIconHome = styled(SearchIcon)`
-path {fill: #b8b8b8;}
-position: absolute;
-top: 63%;
-left: 12px;
-`
+  path {
+    fill: #b8b8b8;
+  }
+  position: absolute;
+  top: 63%;
+  left: 12px;
+`;
 
 export const InputSearch = styled.input`
   width: 343px;
@@ -51,13 +53,26 @@ export const InputSearch = styled.input`
 
 export const TypesFoods = styled.div`
   align-self: flex-start;
-  width: 500px;
-  max-height: 42px;
+  width: 100vw;
+  min-height: 42px;
   margin: 8px 0;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   padding-left: 16px;
+  overflow-x: auto;
+  white-space: nowrap;
+
+  ::-webkit-scrollbar {
+    margin-top: 11px;
+    width: 1px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
 
   p {
     box-sizing: border-box;
@@ -67,14 +82,14 @@ export const TypesFoods = styled.div`
     margin: 0 5px;
 
     :first-child {
-          color: #5cb646;
-        }
+      color: #5cb646;
+    }
   }
 `;
 
 export const SearchMessage = styled(TypesFoods)`
-width: 100%;
-padding: 0;
-justify-content: center;
-font-weight: 500;
-`
+  width: 100%;
+  padding: 0;
+  justify-content: center;
+  font-weight: 500;
+`;
