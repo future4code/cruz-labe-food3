@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EditIcon from "../../images/edit-icon.png";
 import CardOrder from "./CardOrder";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
+import { ordersHistory } from "../../services/ordersHistory";
+import { getProfile } from "../../services/getProfile";
 import {
   MainContainer,
   DataContainer,
@@ -11,23 +13,69 @@ import {
   OrdersHistoryContainer,
   FooterContainer,
 } from "./styled";
+
 const ProfilePage = () => {
+  const [orders, setOrders] = useState([]);
+  const [profile, setProfile] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      const res = await ordersHistory();
+
+      if (res.status) {
+        setOrders(res.data.orders);
+      } else {
+      }
+    })();
+  }, [setOrders]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getProfile();
+
+      if (res.status) {
+        setProfile(res.user);
+      } else {
+        console.log(res.message);
+      }
+    })();
+  }, []);
+
+  const formatter = Intl.DateTimeFormat("pt-BR", {
+    dateStyle: "long",
+  });
+
+  const getListOrders = () => {
+    let listOrders =
+      orders &&
+      orders.map((item) => {
+        return (
+          <CardOrder
+            totalPrice={item.totalPrice.toFixed(2)}
+            restaurantName={item.restaurantName}
+            createdAt={formatter.format(item.createdAt)}
+          />
+        );
+      });
+    return listOrders;
+  };
+
   return (
     <>
       <MainContainer>
         <Header name={"Perfil"} />
         <DataContainer>
           <EditContainer>
-            <p> {"Paula Lopes"}</p>
+            <p> {profile.name}</p>
             <button>
               <img src={EditIcon} />
             </button>
           </EditContainer>
-          <p>{"email"}</p>
-          <p>{"numero"}</p>
+          <p>{profile.email}</p>
+          <p>{profile.cpf}</p>
           <AddressContainer>
             <p>Endereço cadastrado</p>
-            <p>{"Endereço"}</p>
+            <p>{profile.address}</p>
             <button>
               <img src={EditIcon} />
             </button>
@@ -36,7 +84,7 @@ const ProfilePage = () => {
       </MainContainer>
       <OrdersHistoryContainer>
         <p>Histórico de Pedidos</p>
-        <CardOrder />
+        {getListOrders()}
       </OrdersHistoryContainer>
       <FooterContainer>
         <Footer profile />

@@ -1,12 +1,12 @@
 import React from "react";
 import { CardContainer } from "./styled";
 
-const CardOrder = () => {
+const CardOrder = (props) => {
   return (
     <CardContainer>
-      <p>{"Bulguer Vila Madalena"}</p>
-      <p>{"data"}</p>
-      <p>SUBTOTAL R$:{"98,00"}</p>
+      <p>{props.restaurantName}</p>
+      <p>{props.createdAt}</p>
+      <p>SUBTOTAL R$:{props.totalPrice}</p>
     </CardContainer>
   );
 };
