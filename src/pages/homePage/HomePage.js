@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import {
   InputArea,
@@ -10,10 +10,13 @@ import { Header, InputSearch } from "./style";
 import CardSearch from "../../components/home-feed/CardSearch";
 import { goToSearch } from "../../routes/coordinator";
 import Footer from "../../components/footer/Footer";
+import GlobalContext from "../../global/globalContext";
 
 const HomePage = () => {
+  const { restaurants } = useContext(GlobalContext);
   const history = useHistory();
 
+  console.log(restaurants)
   return (
     <>
       <MainContainer>
