@@ -1,5 +1,6 @@
 import axios from "axios";
 import { baseUrl } from "../constants/urls";
+import { headerApi } from "../services/config/headerApi";
 
 export const getProfile = async () => {
   try {
