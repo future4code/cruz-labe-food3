@@ -36,12 +36,14 @@ export const Header = styled.header`
 
 export const InputArea = styled.div`
 position: relative;
+margin-top: 52px;
+height: 56px;
 `
 
 export const SearchIconHome = styled(SearchIcon)`
 path {fill: #b8b8b8;}
 position: absolute;
-top: 64%;
+top: 28%;
 left: 12px;
 `
 
@@ -53,7 +55,6 @@ export const InputSearch = styled.input`
   border-radius: 2px;
   border: solid 1px #b8b8b8;
   box-sizing: border-box;
-  margin-top: 52px;
 `;
 
 export const SearchMessage = styled.div`

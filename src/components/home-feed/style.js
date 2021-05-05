@@ -10,6 +10,10 @@ export const CardFood = styled.div`
 
   img {
     display: block;
+    width: 343px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
   }
 
   > div {
