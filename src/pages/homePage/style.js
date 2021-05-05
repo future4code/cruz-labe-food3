@@ -29,6 +29,7 @@ export const Header = styled.header`
 
 export const InputArea = styled.div`
 position: relative;
+z-index: -1;
 `
 
 export const SearchIconHome = styled(SearchIcon)`
