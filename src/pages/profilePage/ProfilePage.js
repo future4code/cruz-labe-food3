@@ -2,6 +2,7 @@ import React from "react";
 import EditIcon from "../../images/edit-icon.png";
 import CardOrder from "./CardOrder";
 import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 import {
   MainContainer,
   DataContainer,
@@ -14,6 +15,7 @@ const ProfilePage = () => {
   return (
     <>
       <MainContainer>
+        <Header name={"Perfil"} />
         <DataContainer>
           <EditContainer>
             <p> {"Paula Lopes"}</p>

@@ -36,6 +36,7 @@ export const DataContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
 
   p {
     margin-left: 16px;
