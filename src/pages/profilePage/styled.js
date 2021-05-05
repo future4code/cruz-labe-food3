@@ -103,7 +103,6 @@ export const OrdersHistoryContainer = styled.div`
 `;
 
 export const FooterContainer = styled.div`
-  border: 1px solid black;
   width: 100%;
   position: absolute;
   bottom: 0;

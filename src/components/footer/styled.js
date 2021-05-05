@@ -9,4 +9,7 @@ export const ContainerFooter = styled.div`
   align-items: center;
   padding: 8px 47px;
   border-top: 1px solid ${gray};
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
 `;

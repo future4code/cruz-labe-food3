@@ -1,10 +1,13 @@
 import React from "react";
-import { CardFood, InputArea, MainContainer, TypesFoods, SearchIconHome } from "../homePage/style";
+import { useHistory } from "react-router-dom"
+import { InputArea, MainContainer, TypesFoods, SearchIconHome } from "../homePage/style";
 import { Header, InputSearch } from "./style";
-import Food from "./image.png";
-
+import CardSearch from "../../components/home-feed/CardSearch"
+import { goToSearch } from "../../routes/coordinator";
+import Footer from "../../components/footer/Footer";
 
 const HomePage = () => {
+  const history = useHistory()
 
   return (
     <MainContainer>
@@ -12,7 +15,7 @@ const HomePage = () => {
       <Header>FutureEats</Header>
       
       <InputArea>
-        <InputSearch name="search" placeholder="Restaurante" />
+        <InputSearch onClick={() => goToSearch(history)} name="search" placeholder="Restaurante" />
         <SearchIconHome />
       </InputArea>
       
@@ -23,28 +26,13 @@ const HomePage = () => {
         <p>Saudáveis</p>
       </TypesFoods>
 
-      <CardFood>
-        <img src={Food} />
-        <div>
-          <p>Bullguer Eldorado</p>
-          <span>
-            <p>30 - 45 min</p>
-            <p>Frete R$6,00</p>
-          </span>
-        </div>
-      </CardFood>
+      <CardSearch />
+      <CardSearch />
+      <CardSearch />
       
-      <CardFood>
-        <img src={Food} />
-        <div>
-          <p>Bullguer Eldorado</p>
-          <span>
-            <p>30 - 45 min</p>
-            <p>Frete R$6,00</p>
-          </span>
-        </div>
-      </CardFood>
+      <CardSearch />
 
+      <Footer home />
     </MainContainer>
   );
 };
