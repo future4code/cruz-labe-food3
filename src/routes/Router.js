@@ -5,8 +5,11 @@ import HomePage from "../pages/homePage/HomePage";
 import LoginPage from "../pages/loginPage/LoginPage";
 import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
 import SignUpPage from "../pages/signUpPage/SignUpPage";
+import ProfilePage from "../pages/profilePage/ProfilePage";
+import SearchPage from "../pages/searchPage/SearchPage.js";
 
 const Router = () => {
+
   return (
     <BrowserRouter>
       <Switch>
@@ -28,6 +31,14 @@ const Router = () => {
 
         <Route exact path={"/cart"}>
           <MyCartPage />
+        </Route>
+
+        <Route exact path={"/profile"}>
+          <ProfilePage />
+        </Route>
+
+        <Route exact path={"/search"}>
+          <SearchPage />
         </Route>
 
         <Route>

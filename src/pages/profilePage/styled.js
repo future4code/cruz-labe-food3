@@ -6,10 +6,11 @@ export const CardContainer = styled.div`
   width: 100%;
   height: 102px;
   border: 1px solid lightgray;
-  line-height: 0;
   border-radius: 10px;
+  margin-top: 8px;
 
   & > P {
+    margin-top: 8px;
     margin-left: 16px;
   }
 
@@ -27,18 +28,15 @@ export const CardContainer = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   margin-top: 64px;
   font-size: 16px;
-  line-height: 0;
 `;
 
 export const DataContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
 
   p {
     margin-left: 16px;
@@ -49,8 +47,14 @@ export const AddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 10vh;
   background-color: #eeeeee;
   justify-content: center;
+  margin-top: 20px;
+
+  & > p {
+    margin-top: 5px;
+  }
 
   & > p:nth-child(1) {
     color: #b8b8b8;
@@ -83,6 +87,7 @@ export const EditContainer = styled.div`
   button {
     background-color: transparent;
     border: none;
+    height: 10px;
   }
 `;
 
@@ -96,4 +101,10 @@ export const OrdersHistoryContainer = styled.div`
     margin-top: 20px;
     border-bottom: 1px solid black;
   }
+`;
+
+export const FooterContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 `;
