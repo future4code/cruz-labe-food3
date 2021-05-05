@@ -7,6 +7,7 @@ import Restaurants from "./pages/restaurants/restaurants";
 import "./assets/css/fonts.css";
 import Router from "./routes/Router";
 import GlobalState from "./global/GlobalState";
+import SignUpPage from "./pages/signUpPage/SignUpPage";
 
 const App = () => {
   return (

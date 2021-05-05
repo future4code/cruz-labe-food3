@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px;
-  padding-top: 80px;
+  margin-top: 24px;
 `;
 
 export const Logo = styled.img`
@@ -26,4 +26,18 @@ export const SignUpButton = styled.button`
   background-color: #5cb646;
   margin-top: 16px;
   height: 42px;
+`;
+
+export const Header = styled.header`
+  height: 44px;
+  margin: 0 auto;
+  border-bottom: 1px solid lightgray;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+`;
+
+export const ArrowContainer = styled.img`
+  margin-left: 16px;
+  cursor: pointer;
 `;
