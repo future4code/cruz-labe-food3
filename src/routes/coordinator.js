@@ -1,23 +1,27 @@
-export const gotToHomePage = (history) => {
+export const goToHomePage = (history) => {
   history.push("/");
 };
 
-export const gotToSignUpPage = (history) => {
+export const goToSignUpPage = (history) => {
   history.push("/signup");
 };
 
-export const gotToLoginPage = (history) => {
+export const goToLoginPage = (history) => {
   history.push("/login");
 };
 
-export const gotToAddAddressPage = (history) => {
+export const goToAddAddressPage = (history) => {
   history.push("/addAddress");
 };
 
-export const gotToMyCartPage = (history) => {
+export const goToMyCartPage = (history) => {
   history.push("/cart");
 };
 
-export const gotToProfile = (history) => {
+export const goToProfile = (history) => {
   history.push("/profile");
+};
+
+export const goToSearch = (history) => {
+  history.push("/search");
 };

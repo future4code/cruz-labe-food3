@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from "styled-components"
 import SearchIcon from '@material-ui/icons/Search';
+
 
 export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 92vh;
+  min-height: 100vh;
   overflow: hidden;
-  overflow-y: auto;
 `;
 
 export const Header = styled.header`
@@ -15,7 +15,6 @@ export const Header = styled.header`
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: #fff;
 
   border-bottom: 1px solid #d0d0d0;
 
@@ -24,7 +23,15 @@ export const Header = styled.header`
   align-items: center;
 
   font-weight: 500;
-  z-index: 1000;
+
+  button {
+      position: absolute;
+      top: 25%;
+      left: 20px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+  }
 `;
 
 export const InputArea = styled.div`
@@ -49,32 +56,13 @@ export const InputSearch = styled.input`
   margin-top: 52px;
 `;
 
-export const TypesFoods = styled.div`
-  align-self: flex-start;
-  width: 500px;
-  height: 42px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  padding-left: 16px;
-
-  p {
-    box-sizing: border-box;
-    width: 87px;
-    display: flex;
-    justify-content: center;
-    margin: 0 5px;
-
-    :first-child {
-          color: #5cb646;
-        }
-  }
-`;
-
-export const SearchMessage = styled(TypesFoods)`
+export const SearchMessage = styled.div`
 width: 100%;
+height: 42px;
+margin: 8px 0 0;
 padding: 0;
+display: flex;
+align-items: center;
 justify-content: center;
 font-weight: 500;
-`
+`;

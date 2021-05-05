@@ -1,51 +1,48 @@
 import React from "react";
-import { CardFood, InputArea, MainContainer, TypesFoods, SearchIconHome } from "../homePage/style";
+import { useHistory } from "react-router-dom";
+import {
+  InputArea,
+  MainContainer,
+  TypesFoods,
+  SearchIconHome,
+} from "../homePage/style";
 import { Header, InputSearch } from "./style";
-import Food from "./image.png";
-
+import CardSearch from "../../components/home-feed/CardSearch";
+import { goToSearch } from "../../routes/coordinator";
+import Footer from "../../components/footer/Footer";
 
 const HomePage = () => {
+  const history = useHistory();
 
   return (
-    <MainContainer>
+    <>
+      <MainContainer>
+        <Header>FutureEats</Header>
 
-      <Header>FutureEats</Header>
-      
-      <InputArea>
-        <InputSearch name="search" placeholder="Restaurante" />
-        <SearchIconHome />
-      </InputArea>
-      
-      <TypesFoods>
-        <p>Burger</p>
-        <p>Asiáticas</p>
-        <p>Massas</p>
-        <p>Saudáveis</p>
-      </TypesFoods>
+        <InputArea>
+          <InputSearch
+            onClick={() => goToSearch(history)}
+            name="search"
+            placeholder="Restaurante"
+          />
+          <SearchIconHome />
+        </InputArea>
 
-      <CardFood>
-        <img src={Food} />
-        <div>
-          <p>Bullguer Eldorado</p>
-          <span>
-            <p>30 - 45 min</p>
-            <p>Frete R$6,00</p>
-          </span>
-        </div>
-      </CardFood>
-      
-      <CardFood>
-        <img src={Food} />
-        <div>
-          <p>Bullguer Eldorado</p>
-          <span>
-            <p>30 - 45 min</p>
-            <p>Frete R$6,00</p>
-          </span>
-        </div>
-      </CardFood>
+        <TypesFoods>
+          <p>Burger</p>
+          <p>Asiáticas</p>
+          <p>Massas</p>
+          <p>Saudáveis</p>
+        </TypesFoods>
 
-    </MainContainer>
+        <CardSearch />
+        <CardSearch />
+        <CardSearch />
+
+        <CardSearch />
+      </MainContainer>
+      <Footer home />
+    </>
   );
 };
 
