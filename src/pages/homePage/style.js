@@ -51,20 +51,28 @@ export const InputSearch = styled.input`
 
 export const TypesFoods = styled.div`
   align-self: flex-start;
-  width: 500px;
-  max-height: 42px;
+  width: 375px;
+  min-height: 40px;
   margin: 8px 0;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding-left: 16px;
+  padding: 10px 8px 0 16px;
+  
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+  width: 0px;
+  }
 
   p {
     box-sizing: border-box;
-    min-width: 87px;
     display: flex;
     justify-content: center;
-    margin: 0 5px;
+    margin: 0 8px;
+    padding-right: 8px;
 
     :first-child {
           color: #5cb646;
