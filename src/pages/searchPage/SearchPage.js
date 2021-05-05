@@ -46,7 +46,10 @@ const SearchPage = () => {
         <SearchIconHome />
       </InputArea>
 
-      {filtredRestaurants.length === 0 && (
+      {filtredRestaurants.length === 0 && form.search.length > 0 && (
+        <SearchMessage>Não encontramos :(</SearchMessage>
+      )}
+      {form.search === "" && (
         <SearchMessage>Busque por nome de restaurante</SearchMessage>
       )}
 

@@ -50,14 +50,13 @@ export const InputSearch = styled.input`
 `;
 
 export const TypesFoods = styled.div`
-  align-self: flex-start;
   width: 375px;
   min-height: 40px;
-  margin: 8px 0;
-  box-sizing: border-box;
+  max-height: 40px;
+  margin-top: 8px;
   display: flex;
   align-items: center;
-  padding: 10px 8px 0 16px;
+  padding: 0 8px 0 16px;
   
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -70,7 +69,6 @@ export const TypesFoods = styled.div`
   p {
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
     margin: 0 8px;
     padding-right: 8px;
 
