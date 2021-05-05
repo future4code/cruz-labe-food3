@@ -29,13 +29,12 @@ export const Header = styled.header`
 
 export const InputArea = styled.div`
 position: relative;
-z-index: -1;
 `
 
 export const SearchIconHome = styled(SearchIcon)`
 path {fill: #b8b8b8;}
 position: absolute;
-top: 64%;
+top: 63%;
 left: 12px;
 `
 
@@ -53,7 +52,7 @@ export const InputSearch = styled.input`
 export const TypesFoods = styled.div`
   align-self: flex-start;
   width: 500px;
-  height: 42px;
+  max-height: 42px;
   margin: 8px 0;
   box-sizing: border-box;
   display: flex;
@@ -62,7 +61,7 @@ export const TypesFoods = styled.div`
 
   p {
     box-sizing: border-box;
-    width: 87px;
+    min-width: 87px;
     display: flex;
     justify-content: center;
     margin: 0 5px;

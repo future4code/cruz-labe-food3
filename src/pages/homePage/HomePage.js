@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
   InputArea,
@@ -14,9 +14,19 @@ import GlobalContext from "../../global/globalContext";
 
 const HomePage = () => {
   const { restaurants } = useContext(GlobalContext);
+  const [filtred, setFilter] = useState([])
+  const [type] = useState('Árabe')
   const history = useHistory();
 
-  console.log(restaurants)
+  const filtredRestaurants = (category) => {
+    const filter = restaurants.filter(item => 
+      item.category === category  
+    )
+    setFilter(filter)
+  }
+
+  console.log('array fitrado apos clique',filtred)
+
   return (
     <>
       <MainContainer>
@@ -32,17 +42,13 @@ const HomePage = () => {
         </InputArea>
 
         <TypesFoods>
-          <p>Burger</p>
-          <p>Asiáticas</p>
-          <p>Massas</p>
-          <p>Saudáveis</p>
+          {restaurants.map(type => 
+            <p key={type.id} onClick={() => filtredRestaurants(type.category)} color={type} >{type.category}</p>
+            )}
         </TypesFoods>
 
-        <CardSearch />
-        <CardSearch />
-        <CardSearch />
-
-        <CardSearch />
+        <CardSearch restaurants={filtred.length > 0 ? filtred : restaurants} />
+      
       </MainContainer>
       <Footer home />
     </>

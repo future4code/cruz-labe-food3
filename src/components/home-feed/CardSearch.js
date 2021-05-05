@@ -1,22 +1,23 @@
-import React from "react";
-import Food from "../../assets/images/image.png"
+import React, { useContext } from "react";
 import { CardFood } from "./style"
 
-const CardSearch = () => {
-  
+const CardSearch = ({ restaurants }) => {
 
-  return (
-    <CardFood>
-      <img src={Food} />
-      <div>
-        <p>Bullguer Eldorado</p>
-        <span>
-          <p>30 - 45 min</p>
-          <p>Frete R$6,00</p>
-        </span>
-      </div>
-    </CardFood>
-  );
+  return (<>
+    {restaurants.map(data => 
+      <CardFood>
+        <img src={data.logoUrl} />
+        <div>
+          <p>{data.name}</p>
+          <span>
+            <p>{Math.floor(data.deliveryTime/2)} - {data.deliveryTime} min</p>
+            <p>Frete R${data.shipping},00</p>
+          </span>
+        </div>
+      </CardFood>
+     )
+    }
+  </>);
 };
 
 export default CardSearch
