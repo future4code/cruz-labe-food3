@@ -4,7 +4,8 @@ import logo from "../../images/logo-future-eats-invert.png";
 import { MainContainer, Logo, TopText, Header, ArrowContainer } from "./styled";
 import Arrow from "../../images/arrow.svg";
 import { useHistory } from "react-router";
-import { goToLastPage, goToLoginPage } from "../../routes/coordinator";
+import { goToLoginPage } from "../../routes/coordinator";
+
 const SignUpPage = () => {
   const history = useHistory();
 
