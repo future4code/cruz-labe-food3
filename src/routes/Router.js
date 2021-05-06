@@ -37,13 +37,10 @@ const Router = () => {
           <ProfilePage />
         </Route>
 
-        <Route exact path={"/search"}>
-          <SearchPage />
+        <Route exact path={"/restaurants"}>
+          <Restaurants />
         </Route>
 
-        <Route exact path={"/editAddress"}>
-          <EditAddressPage />
-        </Route>
         <Route>
           <div>Página não encontrada</div>
         </Route>

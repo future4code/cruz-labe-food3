@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react"
 import styled from "styled-components"
 
 export const MainContainer = styled.div`
@@ -57,9 +57,8 @@ export const Add = styled.button`
   border: 1px solid #5cb646;
   border-bottom-right-radius: 8px;
   background:none;
-  margin: 0 -9.5px -19px 0;
+  margin: 0 -9.5px -16.5px 0;
 `;
-
 
 
  
