@@ -66,7 +66,7 @@ export const CardItem = styled.div`
   margin-bottom: 8px;
 `;
 
-export const ContainerPayment = styled.div`
+export const ContainerPayment = styled.form`
   width: 100%;
   padding: 16px;
 `;
@@ -122,4 +122,4 @@ export const RadioBlack = withStyles({
     },
   },
   checked: {},
-})((props) => <Radio color="default" {...props} />);
+})((props) => <Radio required color="default" {...props} />);

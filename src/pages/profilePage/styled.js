@@ -36,6 +36,7 @@ export const DataContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
 
   p {
     margin-left: 16px;
@@ -103,7 +104,6 @@ export const OrdersHistoryContainer = styled.div`
 `;
 
 export const FooterContainer = styled.div`
-  border: 1px solid black;
   width: 100%;
   position: absolute;
   bottom: 0;

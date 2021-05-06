@@ -7,6 +7,7 @@ export const signUp = async (body) => {
 
     const { token } = response.data;
     const { hasAddress } = response.data.user;
+    alert("cadastro realizado");
 
     return {
       token,
@@ -15,7 +16,6 @@ export const signUp = async (body) => {
     };
   } catch (error) {
     const { message } = error.response.data;
-
     return {
       message,
       status: false,
