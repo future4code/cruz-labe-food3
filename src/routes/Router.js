@@ -8,6 +8,7 @@ import SignUpPage from "../pages/signUpPage/SignUpPage";
 import ProfilePage from "../pages/profilePage/ProfilePage";
 import SearchPage from "../pages/searchPage/SearchPage.js";
 import EditAddressPage from "../pages/EditAdressPage/EditAddressPage.js";
+import EditProfilePage from "../pages/editProfilePage/EditProfilePage";
 
 const Router = () => {
   return (
@@ -43,6 +44,10 @@ const Router = () => {
 
         <Route exact path={"/editAddressPage"}>
           <EditAddressPage />
+        </Route>
+
+        <Route exact path={"/editProfile"}>
+          <EditProfilePage />
         </Route>
 
         <Route>
