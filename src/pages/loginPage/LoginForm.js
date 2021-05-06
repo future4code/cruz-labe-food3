@@ -13,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import { login } from "../../services/login";
+import { goToAddAddressPage, goToHomePage } from "../../routes/coordinator";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -37,7 +38,13 @@ const LoginForm = () => {
     const result = await login(form);
     if (result.status) {
       localStorage.setItem("token", result.token);
-      history.push("/");
+
+      if (result.hasAddress) {
+        goToHomePage(history);
+      } else {
+        alert("Para continuar, cadastre o seu endereço :)");
+        goToAddAddressPage(history);
+      }
     } else {
       alert(result.message);
     }

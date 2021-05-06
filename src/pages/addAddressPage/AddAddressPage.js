@@ -3,7 +3,7 @@ import AddAddressForm from "./AddAddressForm";
 import { MainContainer, Logo, TopText, Header, ArrowContainer } from "./styled";
 import Arrow from "../../images/arrow.svg";
 import { useHistory } from "react-router";
-import { goToSignUpPage } from "../../routes/coordinator";
+import { goToLastPage } from "../../routes/coordinator";
 
 const AddAddressPage = () => {
   const history = useHistory();
@@ -13,7 +13,7 @@ const AddAddressPage = () => {
       <Header>
         <ArrowContainer
           src={Arrow}
-          onClick={() => goToSignUpPage(history)}
+          onClick={() => goToLastPage(history)}
           alt="seta para voltar"
         />
       </Header>

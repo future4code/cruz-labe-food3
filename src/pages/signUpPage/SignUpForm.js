@@ -36,6 +36,8 @@ const SignUpForm = () => {
 
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  // const [isValidCpf, setIsValidCpf] = useState(false);
+  // const [cpf, setCpf] = useState("");
 
   const [values, setValues] = useState({
     password: "",
@@ -45,15 +47,22 @@ const SignUpForm = () => {
     error: false,
   });
 
+  // const onChangeValidCpf = (e) => {
+  //   if (cpf.length !== 10) {
+  //     setIsValidCpf(true);
+  //   } else {
+  //     setIsValidCpf(false);
+  //   }
+  //   setCpf(e.target.value);
+  // };
+
   const onChangeConfirmPassword = (e) => {
     if (form.password !== e.target.value) {
       setIsValidPassword(true);
     } else {
       setIsValidPassword(false);
     }
-
     setConfirmPassword(e.target.value);
-    console.log(e.target.value);
   };
 
   const onSubmitForm = async () => {
@@ -95,11 +104,11 @@ const SignUpForm = () => {
     <div>
       <form onSubmit={onSubmitForm}>
         <TextField
-          InputProps={{
-            inputProps: {
-              pattern: "[^-s][a-zA-ZÀ-ú ]*",
-            },
-          }}
+          // InputProps={{
+          //   inputProps: {
+          //     pattern: "[^-s][a-zA-ZÀ-ú ]",
+          //   },
+          // }}
           name={"name"}
           value={form.name}
           onChange={onChange}
@@ -137,13 +146,12 @@ const SignUpForm = () => {
           name={"cpf"}
           value={form.cpf}
           onChange={onChange}
-          InputProps={{ inputProps: { min: 11, max: 11 } }}
+          type={"number"}
           className={clsx(classes.margin, classes.textField)}
           label={"CPF"}
           placeholder={"000.000.000-00"}
           margin={"normal"}
           variant={"outlined"}
-          type={"number"}
           required
           fullWidth
         />
@@ -155,9 +163,9 @@ const SignUpForm = () => {
           <InputLabel htmlFor="outlined-adornment-password">Senha *</InputLabel>
           <OutlinedInput
             id="password"
-            inputProps={{ pattern: ".{6,}" }}
             name={"password"}
             placeholder="Mínimo 6 caracteres"
+            inputProps={{ minlength: 6, maxLength: 12 }}
             type={values.showPassword ? "text" : "password"}
             value={(values.password, form.password)}
             required
