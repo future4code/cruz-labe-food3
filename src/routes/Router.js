@@ -7,9 +7,9 @@ import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
 import SignUpPage from "../pages/signUpPage/SignUpPage";
 import ProfilePage from "../pages/profilePage/ProfilePage";
 import SearchPage from "../pages/searchPage/SearchPage.js";
+import EditAddressPage from "../pages/EditAdressPage/EditAddressPage.js";
 
 const Router = () => {
-
   return (
     <BrowserRouter>
       <Switch>
@@ -41,6 +41,9 @@ const Router = () => {
           <SearchPage />
         </Route>
 
+        <Route exact path={"/editAddress"}>
+          <EditAddressPage />
+        </Route>
         <Route>
           <div>Página não encontrada</div>
         </Route>
