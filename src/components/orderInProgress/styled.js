@@ -26,5 +26,5 @@ export const ClockContainer = styled.div`
 `;
 
 export const RestaurantName = styled.p`
-  line-height: 3px;
+  line-height: 30px;
 `;
