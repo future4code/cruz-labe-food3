@@ -62,10 +62,14 @@ const SignUpForm = () => {
     if (form.password === confirmPassword) {
       setIsValidPassword(false);
       const result = await signUp(form);
-      localStorage.setItem("token", result.token);
-      setConfirmPassword("");
-      clear();
-      history.push("/addAddress");
+      if (result.status) {
+        localStorage.setItem("token", result.token);
+        setConfirmPassword("");
+        clear();
+        history.push("/addAddress");
+      } else {
+        alert(result.message);
+      }
     } else {
       setIsValidPassword(true);
     }
@@ -94,6 +98,7 @@ const SignUpForm = () => {
           name={"name"}
           value={form.name}
           onChange={onChange}
+          // inputProps={{ pattern: "[a-z]" }}
           className={clsx(classes.margin, classes.textField)}
           label={"Nome"}
           placeholder={"Nome e sobrenome"}
@@ -122,6 +127,7 @@ const SignUpForm = () => {
           name={"cpf"}
           value={form.cpf}
           onChange={onChange}
+          pattern={/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/}
           className={clsx(classes.margin, classes.textField)}
           label={"CPF"}
           placeholder={"000.000.000-00"}

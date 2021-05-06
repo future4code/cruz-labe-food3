@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import useForm from "../../hooks/useForm";
-import { TextField } from "@material-ui/core";
+import {
+  TextField,
+  InputLabel,
+  OutlinedInput,
+  IconButton,
+  FormControl,
+} from "@material-ui/core";
 import { LoginButton } from "./styled";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { VisibilityOff, Visibility } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
 import clsx from "clsx";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
+import { useHistory } from "react-router-dom";
+import { login } from "../../services/login";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -21,6 +24,24 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginForm = () => {
   const classes = useStyles();
+  const history = useHistory();
+
+  const [form, onChange, clear] = useForm({
+    email: "",
+    password: "",
+  });
+
+  const onSubmitForm = async () => {
+    window.event.preventDefault();
+
+    const result = await login(form);
+    if (result.status) {
+      localStorage.setItem("token", result.token);
+      history.push("/");
+    } else {
+      alert(result.message);
+    }
+  };
 
   const [values, setValues] = useState({
     password: "",
@@ -41,8 +62,11 @@ const LoginForm = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={onSubmitForm}>
         <TextField
+          name={"email"}
+          value={form.email}
+          onChange={onChange}
           label={"E-mail"}
           placeholder={"email@email.com"}
           margin={"normal"}
@@ -58,12 +82,13 @@ const LoginForm = () => {
         >
           <InputLabel htmlFor="outlined-adornment-password">Senha*</InputLabel>
           <OutlinedInput
+            name={"password"}
             placeholder="Mínimo 6 caracteres"
             type={values.showPassword ? "text" : "password"}
-            value={values.password}
+            value={(values.password, form.password)}
             fullWidth
             required
-            onChange={handleChange("password")}
+            onChange={(handleChange("password"), onChange)}
             endAdornment={
               <IconButton
                 aria-label="toggle password visibility"
@@ -78,7 +103,7 @@ const LoginForm = () => {
           />
         </FormControl>
 
-        <LoginButton>Entrar</LoginButton>
+        <LoginButton type={"submit"}>Entrar</LoginButton>
       </form>
     </div>
   );

@@ -7,10 +7,12 @@ export const login = async (body) => {
 
     const { token } = response.data;
     const { hasAddress } = response.data.user;
+    const { email } = response.data.user;
 
     return {
       token,
       hasAddress,
+      email,
       status: true,
     };
   } catch (error) {

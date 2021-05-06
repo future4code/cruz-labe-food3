@@ -31,11 +31,8 @@ const AddAddressForm = () => {
     window.event.preventDefault();
     const result = await addAddress(form);
     localStorage.setItem("token", result.token);
-    console.log("Entrou!");
     history.push("/");
-    console.log(result);
   };
-  console.log(form);
 
   return (
     <div>
