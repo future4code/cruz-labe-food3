@@ -61,6 +61,15 @@ export const Add = styled.button`
   margin: 0 -9.5px -16.5px 0;
 `;
 
+export const Remove = styled.button`
+  padding: 7px;
+  color: red;
+  border: 1px solid red;
+  border-bottom-right-radius: 8px;
+  background: none;
+  margin: 0 -9.5px -16.5px 0;
+`;
+
 export const H3 = styled.h3`
   width: 90%;
   margin: 0 auto;
