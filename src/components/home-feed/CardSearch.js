@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { CardFood } from "./style"
 
 const CardSearch = ({ restaurants }) => {
 
   return (<>
     {restaurants.map(data => 
-      <CardFood>
+      <CardFood key={data.id}>
         <img src={data.logoUrl} />
         <div>
           <p>{data.name}</p>

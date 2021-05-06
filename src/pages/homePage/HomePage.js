@@ -11,11 +11,14 @@ import CardSearch from "../../components/home-feed/CardSearch";
 import { goToSearch } from "../../routes/coordinator";
 import Footer from "../../components/footer/Footer";
 import GlobalContext from "../../global/globalContext";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const HomePage = () => {
+  useProtectedPage();
+
   const { restaurants } = useContext(GlobalContext);
   const [filtred, setFilter] = useState([])
-  const [type] = useState('Árabe')
+  const [categories, setCategory] = useState([])
   const history = useHistory();
 
   const filtredRestaurants = (category) => {
@@ -25,8 +28,16 @@ const HomePage = () => {
     setFilter(filter)
   }
 
-  console.log('array fitrado apos clique',filtred)
+  const filterCategory = (array) => {
+    const mapCategories = array.map((item) => item.category)
+    const categoriesSet = new Set(mapCategories)
+    return [...categoriesSet]
+  }
 
+  useEffect(() => {
+    setCategory(filterCategory(restaurants))
+  }, [setCategory, restaurants])
+  
   return (
     <>
       <MainContainer>
@@ -42,8 +53,8 @@ const HomePage = () => {
         </InputArea>
 
         <TypesFoods>
-          {restaurants.map(type => 
-            <p key={type.id} onClick={() => filtredRestaurants(type.category)} color={type} >{type.category}</p>
+          {categories.map(type => 
+            <p key={type} onClick={() => filtredRestaurants(type)} >{type}</p>
             )}
         </TypesFoods>
 
