@@ -26,6 +26,10 @@ export const goToSearch = (history) => {
   history.push("/search");
 };
 
+export const goToLastPage = (history) => {
+  history.goBack();
+};
+
 export const goToEditAddressPage = (history) => {
   history.push("/editAddress");
 };

@@ -2,11 +2,14 @@ import axios from "axios";
 import { baseUrl } from "../constants/urls";
 import { headerApi } from "./config/headerApi";
 
-export const addAdress = async (body) => {
+export const addAddress = async (body) => {
   try {
-    const response = axios.put(`${baseUrl}/address`, body, headerApi());
+    const response = await axios.put(`${baseUrl}/address`, body, headerApi());
+    console.log(response);
+
     const { token } = response.data;
     const { hasAddress } = response.data.user;
+    console.log("Endereço cadastrado com sucesso!");
 
     return {
       token,

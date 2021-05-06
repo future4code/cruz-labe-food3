@@ -14,6 +14,7 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import { signUp } from "../../services/signup";
+import { goToAddAddressPage } from "../../routes/coordinator";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -35,6 +36,8 @@ const SignUpForm = () => {
 
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  // const [isValidCpf, setIsValidCpf] = useState(false);
+  // const [cpf, setCpf] = useState("");
 
   const [values, setValues] = useState({
     password: "",
@@ -44,15 +47,22 @@ const SignUpForm = () => {
     error: false,
   });
 
+  // const onChangeValidCpf = (e) => {
+  //   if (cpf.length !== 10) {
+  //     setIsValidCpf(true);
+  //   } else {
+  //     setIsValidCpf(false);
+  //   }
+  //   setCpf(e.target.value);
+  // };
+
   const onChangeConfirmPassword = (e) => {
     if (form.password !== e.target.value) {
       setIsValidPassword(true);
     } else {
       setIsValidPassword(false);
     }
-
     setConfirmPassword(e.target.value);
-    console.log(e.target.value);
   };
 
   const onSubmitForm = async () => {
@@ -61,9 +71,14 @@ const SignUpForm = () => {
     if (form.password === confirmPassword) {
       setIsValidPassword(false);
       const result = await signUp(form);
-      localStorage.setItem("token", result.token);
-      setConfirmPassword("");
-      clear();
+      if (result.status) {
+        localStorage.setItem("token", result.token);
+        setConfirmPassword("");
+        clear();
+        history.push("/addAddress");
+      } else {
+        alert(result.message);
+      }
     } else {
       setIsValidPassword(true);
     }
@@ -89,6 +104,11 @@ const SignUpForm = () => {
     <div>
       <form onSubmit={onSubmitForm}>
         <TextField
+          // InputProps={{
+          //   inputProps: {
+          //     pattern: "[^-s][a-zA-ZÀ-ú ]",
+          //   },
+          // }}
           name={"name"}
           value={form.name}
           onChange={onChange}
@@ -106,6 +126,12 @@ const SignUpForm = () => {
           name={"email"}
           value={form.email}
           onChange={onChange}
+          InputProps={{
+            inputProps: {
+              pattern:
+                "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$",
+            },
+          }}
           className={clsx(classes.margin, classes.textField)}
           label={"E-mail"}
           placeholder={"email@email.com"}
@@ -120,12 +146,12 @@ const SignUpForm = () => {
           name={"cpf"}
           value={form.cpf}
           onChange={onChange}
+          type={"number"}
           className={clsx(classes.margin, classes.textField)}
           label={"CPF"}
           placeholder={"000.000.000-00"}
           margin={"normal"}
           variant={"outlined"}
-          type={"number"}
           required
           fullWidth
         />
@@ -139,6 +165,7 @@ const SignUpForm = () => {
             id="password"
             name={"password"}
             placeholder="Mínimo 6 caracteres"
+            inputProps={{ minlength: 6, maxLength: 12 }}
             type={values.showPassword ? "text" : "password"}
             value={(values.password, form.password)}
             required
