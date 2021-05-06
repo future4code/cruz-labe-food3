@@ -15,6 +15,7 @@ export const addAdress = async (body) => {
     };
   } catch (error) {
     const { message } = error.response.data;
+    console.log(message);
 
     return {
       message,
