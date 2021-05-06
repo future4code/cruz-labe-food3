@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import image from "../../images/image.png";
 import {
   MainContainer,
@@ -8,6 +8,7 @@ import {
   Description,
   Price,
   Add,
+  Remove,
   H3,
 } from "./styled";
 import { Modal } from "@material-ui/core";
@@ -16,7 +17,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
-import { getRestaurantDetail } from "../../services/getRestaurantDetail";
+import GlobalContext from "../../global/globalContext";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -53,6 +54,7 @@ const Card = ({ products }) => {
   const styles = useStyles();
   const [modal, handleModal] = useState(false);
   const [qtd, handleQtd] = useState(0);
+  const { cart } = useContext(GlobalContext);
 
   const onChangeSelected = (e) => {
     handleQtd(e.target.value);
@@ -62,55 +64,68 @@ const Card = ({ products }) => {
     handleModal(!modal);
   };
 
-  const body = (
-    <div className={styles.modal}>
-      Selecione a quantidade desejada
-      <FormControl variant="outlined" className={styles.formControl}>
-        <Select
-          value={qtd}
-          onChange={onChangeSelected}
-          displayEmpty
-          className={styles.selectEmpty}
-          inputProps={{ "aria-label": "Without label" }}
-        >
-          <MenuItem selected value={0}>
-            <em>Retirar</em>
-          </MenuItem>
-          <MenuItem value={1}>1 unidade</MenuItem>
-          <MenuItem value={2}>2 unidades</MenuItem>
-          <MenuItem value={3}>3 unidades</MenuItem>
-          <MenuItem value={4}>4 unidades</MenuItem>
-          <MenuItem value={5}>5 unidades</MenuItem>
-          <MenuItem value={6}>6 unidades</MenuItem>
-          <MenuItem value={7}>7 unidades</MenuItem>
-          <MenuItem value={8}>8 unidades</MenuItem>
-          <MenuItem value={9}>9 unidades</MenuItem>
-          <MenuItem value={10}>10 unidades</MenuItem>
-        </Select>
+  const addCart = (item) => {
+    const product = {
+      ...item,
+      quantity: qtd,
+    };
 
-        <div className={styles.align}>
-          <Button className={styles.button}>Adicionar ao carrinho</Button>
-        </div>
-      </FormControl>
-    </div>
-  );
+    cart.addItemCart(product);
+    handleQtd(0);
+    setModal();
+  };
 
   const restaurantList = products.map((item) => {
+    const itemCart = cart.cartState.filter((product) => product.id === item.id);
+    console.log(itemCart);
     return (
-      <div>
+      <div key={item.id}>
         <H3>{item.category} </H3>
         <MainContainer>
-          <Photo key={item.id}>
+          <Photo>
             <img src={item.photoUrl} />
           </Photo>
           <Align>
-            {" "}
             <Name>{item.name}</Name>
             <Description>{item.description}</Description>
             <Price>{item.price}</Price>
-            <Add onClick={setModal}>Adicionar</Add>
+            {itemCart.length === 0 && <Add onClick={setModal}>Adicionar</Add>}
+            {itemCart.length > 0 && <Remove>Remover</Remove>}
             <Modal open={modal} onClose={setModal}>
-              {body}
+              <div className={styles.modal}>
+                Selecione a quantidade desejada
+                <FormControl variant="outlined" className={styles.formControl}>
+                  <Select
+                    value={qtd}
+                    onChange={onChangeSelected}
+                    displayEmpty
+                    className={styles.selectEmpty}
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem selected value={0}>
+                      <em>Retirar</em>
+                    </MenuItem>
+                    <MenuItem value={1}>1 unidade</MenuItem>
+                    <MenuItem value={2}>2 unidades</MenuItem>
+                    <MenuItem value={3}>3 unidades</MenuItem>
+                    <MenuItem value={4}>4 unidades</MenuItem>
+                    <MenuItem value={5}>5 unidades</MenuItem>
+                    <MenuItem value={6}>6 unidades</MenuItem>
+                    <MenuItem value={7}>7 unidades</MenuItem>
+                    <MenuItem value={8}>8 unidades</MenuItem>
+                    <MenuItem value={9}>9 unidades</MenuItem>
+                    <MenuItem value={10}>10 unidades</MenuItem>
+                  </Select>
+                </FormControl>
+                <div className={styles.align}>
+                  <Button
+                    className={styles.button}
+                    onClick={() => addCart(item)}
+                  >
+                    Adicionar ao carrinho
+                  </Button>
+                </div>
+              </div>
             </Modal>
           </Align>
         </MainContainer>
