@@ -37,8 +37,12 @@ const Router = () => {
           <ProfilePage />
         </Route>
 
-        <Route exact path={"/restaurants"}>
-          <Restaurants />
+        <Route exact path={"/search"}>
+          <SearchPage />
+        </Route>
+
+        <Route exact path={"/editAddressPage"}>
+          <EditAddressPage />
         </Route>
 
         <Route>
