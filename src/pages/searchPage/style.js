@@ -36,7 +36,7 @@ export const Header = styled.header`
 
 export const InputArea = styled.div`
 position: relative;
-margin-top: 52px;
+margin: 52px 0 8px 0;
 height: 56px;
 `
 
@@ -60,7 +60,6 @@ export const InputSearch = styled.input`
 export const SearchMessage = styled.div`
 width: 100%;
 height: 42px;
-margin: 8px 0 0;
 padding: 0;
 display: flex;
 align-items: center;
