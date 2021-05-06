@@ -34,7 +34,6 @@ const LoginForm = () => {
 
   const onSubmitForm = async () => {
     window.event.preventDefault();
-
     const result = await login(form);
     if (result.status) {
       localStorage.setItem("token", result.token);

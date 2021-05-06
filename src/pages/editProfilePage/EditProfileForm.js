@@ -4,6 +4,8 @@ import useForm from "../../hooks/useForm";
 import { SaveButton } from "./styled";
 import clsx from "clsx";
 import { updateProfile } from "../../services/updateProfile";
+import { goToProfile } from "../../routes/coordinator";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -15,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
 
 const EditProfileForm = () => {
   const classes = useStyles();
+  const history = useHistory();
 
-  const [form, onChange, clear] = useForm({
+  const [form, onChange] = useForm({
     name: "",
     email: "",
     cpf: "",
@@ -26,6 +29,7 @@ const EditProfileForm = () => {
     window.event.preventDefault();
     const result = await updateProfile(form);
     alert("Perfil atualizado com sucesso! :)");
+    goToProfile(history);
   };
 
   return (
