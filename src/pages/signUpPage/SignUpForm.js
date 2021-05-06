@@ -95,10 +95,14 @@ const SignUpForm = () => {
     <div>
       <form onSubmit={onSubmitForm}>
         <TextField
+          InputProps={{
+            inputProps: {
+              pattern: "[^-s][a-zA-ZÀ-ú ]*",
+            },
+          }}
           name={"name"}
           value={form.name}
           onChange={onChange}
-          // inputProps={{ pattern: "[a-z]" }}
           className={clsx(classes.margin, classes.textField)}
           label={"Nome"}
           placeholder={"Nome e sobrenome"}
@@ -113,6 +117,12 @@ const SignUpForm = () => {
           name={"email"}
           value={form.email}
           onChange={onChange}
+          InputProps={{
+            inputProps: {
+              pattern:
+                "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$",
+            },
+          }}
           className={clsx(classes.margin, classes.textField)}
           label={"E-mail"}
           placeholder={"email@email.com"}
@@ -127,7 +137,7 @@ const SignUpForm = () => {
           name={"cpf"}
           value={form.cpf}
           onChange={onChange}
-          pattern={/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/}
+          InputProps={{ inputProps: { min: 11, max: 11 } }}
           className={clsx(classes.margin, classes.textField)}
           label={"CPF"}
           placeholder={"000.000.000-00"}
@@ -145,6 +155,7 @@ const SignUpForm = () => {
           <InputLabel htmlFor="outlined-adornment-password">Senha *</InputLabel>
           <OutlinedInput
             id="password"
+            inputProps={{ pattern: ".{6,}" }}
             name={"password"}
             placeholder="Mínimo 6 caracteres"
             type={values.showPassword ? "text" : "password"}

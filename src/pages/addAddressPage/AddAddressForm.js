@@ -102,6 +102,11 @@ const AddAddressForm = () => {
           className={clsx(classes.margin, classes.textField)}
         />
         <TextField
+          InputProps={{
+            inputProps: {
+              pattern: "[^-s][a-zA-ZÀ-ú ]*",
+            },
+          }}
           name={"state"}
           value={form.state}
           onChange={onChange}
