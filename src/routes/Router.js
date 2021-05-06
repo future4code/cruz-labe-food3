@@ -6,7 +6,7 @@ import LoginPage from "../pages/loginPage/LoginPage";
 import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
 import SignUpPage from "../pages/signUpPage/SignUpPage";
 import ProfilePage from "../pages/profilePage/ProfilePage";
-import Restaurants from "../pages/restaurants/restaurants";
+import Restaurants from "../pages/restaurant/restaurant";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -39,6 +39,9 @@ const Router = () => {
           <Restaurants />
         </Route>
 
+        <Route exact path={"/restaurant/:idRest"}>
+          <Restaurants />
+        </Route>
 
         <Route>
           <div>Página não encontrada</div>
