@@ -6,6 +6,7 @@ import LoginPage from "../pages/loginPage/LoginPage";
 import MyCartPage from "../pages/MyCartPage/MyCartPage.js";
 import SignUpPage from "../pages/signUpPage/SignUpPage";
 import ProfilePage from "../pages/profilePage/ProfilePage";
+import Restaurants from "../pages/restaurants/restaurants";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -33,6 +34,11 @@ const Router = () => {
         <Route exact path={"/profile"}>
           <ProfilePage />
         </Route>
+
+        <Route exact path={"/restaurants"}>
+          <Restaurants />
+        </Route>
+
 
         <Route>
           <div>Página não encontrada</div>
