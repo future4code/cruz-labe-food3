@@ -36,7 +36,6 @@ export const DataContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
 
   p {
     margin-left: 16px;
@@ -81,7 +80,7 @@ export const EditContainer = styled.div`
 
   img {
     width: 24px;
-    heigth: 24px;
+    height: 24px;
   }
 
   button {
@@ -107,4 +106,9 @@ export const FooterContainer = styled.div`
   width: 100%;
   position: absolute;
   bottom: 0;
+`;
+
+export const Email = styled.p`
+  line-height: 1.7;
+  margin-bottom: 1px;
 `;

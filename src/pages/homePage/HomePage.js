@@ -13,6 +13,7 @@ import Footer from "../../components/footer/Footer";
 import GlobalContext from "../../global/globalContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import OrderInProgress from "../../components/orderInProgress/OrderInProgress";
+import { getActiveOrder } from "../../services/getActiveOrder";
 
 const HomePage = () => {
   useProtectedPage();
@@ -20,6 +21,7 @@ const HomePage = () => {
   const { restaurants } = useContext(GlobalContext);
   const [filtered, setFilter] = useState([]);
   const [categories, setCategory] = useState([]);
+  const [orders, setOrders] = useState([]);
   const history = useHistory();
 
   const filtredRestaurants = (category) => {
@@ -36,6 +38,13 @@ const HomePage = () => {
   useEffect(() => {
     setCategory(filterCategory(restaurants));
   }, [setCategory, restaurants]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await getActiveOrder();
+      result.status && setOrders(result.order);
+    })();
+  }, []);
 
   return (
     <>
@@ -63,7 +72,11 @@ const HomePage = () => {
           restaurants={filtered.length > 0 ? filtered : restaurants}
         />
       </MainContainer>
-      <OrderInProgress />
+      {orders !== null && orders.length !== 0 && orders !== undefined ? (
+        <OrderInProgress />
+      ) : (
+        ""
+      )}
       <Footer home />
     </>
   );

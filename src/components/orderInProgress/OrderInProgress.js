@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import {
   OrderContainer,
   OrderText,
@@ -9,7 +9,6 @@ import {
 } from "./styled";
 import clock from "../../images/clock.png";
 import { getActiveOrder } from "../../services/getActiveOrder";
-import GlobalContext from "../../global/globalContext";
 
 const OrderInProgress = () => {
   const [orders, setOrders] = useState([]);
