@@ -20,7 +20,7 @@ code {
 
 .initial-screen {
   background-color: #000000;
-  background-image: url(../src/images/logo-future-eats.png);
+  background-image: url(../src/assets/images/logo-future-eats.png);
   background-repeat: no-repeat;
   background-position: center;
   width: 100vw;

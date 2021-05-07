@@ -7,7 +7,7 @@ import {
   ClockContainer,
   Price,
 } from "./styled";
-import clock from "../../images/clock.png";
+import clock from "../../assets/images/clock.png";
 import { getActiveOrder } from "../../services/getActiveOrder";
 
 const OrderInProgress = () => {

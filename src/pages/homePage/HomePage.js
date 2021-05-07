@@ -14,7 +14,6 @@ import GlobalContext from "../../global/globalContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import OrderInProgress from "../../components/orderInProgress/OrderInProgress";
 import { getActiveOrder } from "../../services/getActiveOrder";
-import { getRestaurants } from "../../services/getRestaurants";
 
 const HomePage = () => {
   useProtectedPage();
@@ -36,10 +35,9 @@ const HomePage = () => {
     return [...categoriesSet];
   };
 
-    useEffect(() => {
-    setIsUpdate(true)
-    if (restaurants.length)
-    setCategory(filterCategory(restaurants));
+  useEffect(() => {
+    setIsUpdate(true);
+    if (restaurants.length) setCategory(filterCategory(restaurants));
   }, [setCategory, restaurants]);
 
   useEffect(() => {
@@ -72,7 +70,7 @@ const HomePage = () => {
         </TypesFoods>
 
         <CardSearch
-          restaurants={filtered.length > 0 ? filtered :  restaurants}
+          restaurants={filtered.length > 0 ? filtered : restaurants}
         />
       </MainContainer>
       {orders !== null && orders.length !== 0 && orders !== undefined ? (

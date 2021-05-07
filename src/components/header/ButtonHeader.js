@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Arrow from "../../images/arrow.svg";
+import Arrow from "../../assets/images/arrow.svg";
 
 const ButtonContainer = styled.button`
   background-color: transparent;
@@ -12,7 +12,7 @@ const ButtonHeader = (props) => {
   return (
     <>
       <ButtonContainer>
-        <img src={Arrow} />
+        <img src={Arrow} alt="Botão de seta" />
       </ButtonContainer>
     </>
   );

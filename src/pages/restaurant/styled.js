@@ -1,8 +1,7 @@
-import react from "react";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-height:80px;
+  height: 80px;
 `;
 
 export const MainContainer = styled.div`

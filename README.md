@@ -2,7 +2,7 @@
 
 ## FutureEats
 
-<p align="justify">Projeto final realizado como prática de todo o conteúdo do módulo de front-end, desde o básico de Git, GitHub, HTML, CSS e JavaScript até React Avançado e ferramentas de design system.</p>
+<p align="justify">Projeto final realizado como prática de todo o conteúdo do módulo de front-end, desde o básico de Git, GitHub, HTML, CSS, JavaScript, autenticação e autorização até React Avançado e ferramentas de design system.</p>
 
 ## Link do surge
 
@@ -12,7 +12,7 @@ https://the-best-future-eats.surge.sh
 
 ### 12 Telas e Componentes
 
-- [ ] Tela inicial;
+- [x] Tela inicial;
 - [x] Login;
 - [x] Cadastro de endereço;
 - [x] Sign up;
