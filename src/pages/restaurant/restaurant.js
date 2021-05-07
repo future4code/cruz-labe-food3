@@ -6,6 +6,7 @@ import Footer from "../../components/footer/Footer";
 import {
   CardContainer,
   MainContainer,
+  Cards,
   Photo,
   Name,
   Type,
@@ -14,6 +15,7 @@ import {
   Adress,
 } from "./styled";
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
+
 
 const Restaurant = () => {
   const [restaurantDetail, setRestaurantDetail] = useState(null);
@@ -34,9 +36,9 @@ const Restaurant = () => {
   return (
     <div>
    <CardContainer> <Header name={"Restaurante"} /></CardContainer>
-        {restaurantDetail && (
+       <MainContainer> {restaurantDetail && (
          
-          <div>     <MainContainer>
+          <div>    <Cards>
             <Photo>
               <img src={restaurantDetail.logoUrl} />
             </Photo>
@@ -45,13 +47,16 @@ const Restaurant = () => {
             <Time> {restaurantDetail.deliveryTime} min </Time>
             <Shipping>R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}</Shipping>
             <Adress> {restaurantDetail.address} </Adress>
-            </MainContainer> </div>
+            </Cards>
+
+            </div>
           
         )}
 
 
       {restaurantDetail && <Card products={restaurantDetail.products} />}
-
+    </MainContainer>
+ 
       <Footer restaurant />
     </div>
   );

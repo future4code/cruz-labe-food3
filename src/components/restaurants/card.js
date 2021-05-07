@@ -7,6 +7,7 @@ import {
   Quantity,
   Description,
   Price,
+  AlignButton,
   Remove,
   H3,
 } from "./styled";
@@ -50,7 +51,8 @@ const Card = ({ products }) => {
 
             <Description>{item.description}</Description>
             <Price>R${item.price.toFixed(2).replace(".", ",")}</Price>
-
+           
+            <AlignButton>
             {itemCart && (
               <Remove onClick={() => removeCart(item.id)}>Remover</Remove>
             )}
@@ -62,7 +64,7 @@ const Card = ({ products }) => {
                 onChangeSelected={onChangeSelected}
               />
             )}
-          </Align>
+         </AlignButton> </Align>
         </MainContainer>
       </div>
     );
