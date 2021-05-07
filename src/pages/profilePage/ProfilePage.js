@@ -15,13 +15,16 @@ import {
   Email,
 } from "./styled";
 import { goToEditProfilePage } from "../../routes/coordinator";
+import { goToEditAddressPage } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import { getActiveOrder } from "../../services/getActiveOrder";
 
 const ProfilePage = () => {
   useProtectedPage();
   const [orders, setOrders] = useState([]);
   const [profile, setProfile] = useState({});
+  const [hasOrder, setHasOrder] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
@@ -41,6 +44,18 @@ const ProfilePage = () => {
 
       if (res.status) {
         setProfile(res.user);
+      } else {
+        console.log(res.message);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getActiveOrder();
+
+      if (res.status) {
+        setHasOrder(res.order);
       } else {
         console.log(res.message);
       }
@@ -87,15 +102,20 @@ const ProfilePage = () => {
           <AddressContainer>
             <p>Endereço cadastrado</p>
             <p>{profile.address}</p>
-            <button>
-              <img src={EditIcon} alt="" />
+
+            <button onClick={() => goToEditAddressPage(history)}>
+              <img src={EditIcon} alt=""/>
             </button>
           </AddressContainer>
         </DataContainer>
       </MainContainer>
       <OrdersHistoryContainer>
         <p>Histórico de Pedidos</p>
-        {getListOrders()}
+        {orders.length === 0 ? (
+          <span>Você não realizou nenhum pedido</span>
+        ) : (
+          getListOrders()
+        )}
       </OrdersHistoryContainer>
       <FooterContainer>
         <Footer profile />

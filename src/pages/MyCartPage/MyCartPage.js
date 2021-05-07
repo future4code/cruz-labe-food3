@@ -83,9 +83,12 @@ export default function MyCartPage() {
 
       if (result.status) {
         goToHomePage(history);
+        cart.clearCart();
       } else {
         console.log(result.message);
       }
+    } else {
+      alert("Você tem um pedido em aberto. Aguarde ele ser finalizado");
     }
   };
 
