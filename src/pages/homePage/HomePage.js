@@ -12,32 +12,31 @@ import { goToSearch } from "../../routes/coordinator";
 import Footer from "../../components/footer/Footer";
 import GlobalContext from "../../global/globalContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import OrderInProgress from "../../components/orderInProgress/OrderInProgress";
 
 const HomePage = () => {
   useProtectedPage();
 
   const { restaurants } = useContext(GlobalContext);
-  const [filtred, setFilter] = useState([])
-  const [categories, setCategory] = useState([])
+  const [filtered, setFilter] = useState([]);
+  const [categories, setCategory] = useState([]);
   const history = useHistory();
 
   const filtredRestaurants = (category) => {
-    const filter = restaurants.filter(item => 
-      item.category === category  
-    )
-    setFilter(filter)
-  }
+    const filter = restaurants.filter((item) => item.category === category);
+    setFilter(filter);
+  };
 
   const filterCategory = (array) => {
-    const mapCategories = array.map((item) => item.category)
-    const categoriesSet = new Set(mapCategories)
-    return [...categoriesSet]
-  }
+    const mapCategories = array.map((item) => item.category);
+    const categoriesSet = new Set(mapCategories);
+    return [...categoriesSet];
+  };
 
   useEffect(() => {
-    setCategory(filterCategory(restaurants))
-  }, [setCategory, restaurants])
-  
+    setCategory(filterCategory(restaurants));
+  }, [setCategory, restaurants]);
+
   return (
     <>
       <MainContainer>
@@ -53,14 +52,18 @@ const HomePage = () => {
         </InputArea>
 
         <TypesFoods>
-          {categories.map(type => 
-            <p key={type} onClick={() => filtredRestaurants(type)} >{type}</p>
-            )}
+          {categories.map((type) => (
+            <p key={type} onClick={() => filtredRestaurants(type)}>
+              {type}
+            </p>
+          ))}
         </TypesFoods>
 
-        <CardSearch restaurants={filtred.length > 0 ? filtred : restaurants} />
-      
+        <CardSearch
+          restaurants={filtered.length > 0 ? filtered : restaurants}
+        />
       </MainContainer>
+      <OrderInProgress />
       <Footer home />
     </>
   );

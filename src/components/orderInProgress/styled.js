@@ -10,19 +10,27 @@ export const OrderContainer = styled.div`
   height: 118px;
   justify-content: center;
   align-items: center;
+  height: 118px;
+  position: absolute;
+  margin-top: -117px;
 `;
 
 export const OrderText = styled.p`
   color: #ffffff;
 `;
 
-export const OrderPrice = styled.p`
+export const OrderPriceContainer = styled.div`
   font-weight: bold;
+  display: flex;
 `;
 
 export const ClockContainer = styled.div`
   justify-self: center;
   align-self: center;
+`;
+
+export const Price = styled.p`
+  margin-right: 5px;
 `;
 
 export const RestaurantName = styled.p`
