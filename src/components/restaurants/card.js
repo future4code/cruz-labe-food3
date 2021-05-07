@@ -49,7 +49,7 @@ const Card = ({ products }) => {
             <Name>{item.name}</Name> <Quantity>{qtd}</Quantity>
 
             <Description>{item.description}</Description>
-            <Price>R${item.price.toFixed(2)}</Price>
+            <Price>R${item.price.toFixed(2).replace(".", ",")}</Price>
 
             {itemCart && (
               <Remove onClick={() => removeCart(item.id)}>Remover</Remove>

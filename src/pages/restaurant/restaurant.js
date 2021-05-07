@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Card from "../../components/restaurants/card";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import {
   CardContainer,
   MainContainer,
@@ -42,7 +43,7 @@ const Restaurant = () => {
             <Name> {restaurantDetail.name} </Name>
             <Type>{restaurantDetail.category} </Type>
             <Time> {restaurantDetail.deliveryTime} min </Time>
-            <Shipping>R${restaurantDetail.shipping.toFixed(2)}</Shipping>
+            <Shipping>R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}</Shipping>
             <Adress> {restaurantDetail.address} </Adress>
             </MainContainer> </div>
           
@@ -50,6 +51,8 @@ const Restaurant = () => {
 
 
       {restaurantDetail && <Card products={restaurantDetail.products} />}
+
+      <Footer restaurant />
     </div>
   );
 };

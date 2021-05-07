@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   width: 90vw;
   margin: 5vw;
-  height: 150px;
+  height: 170px;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -23,7 +23,7 @@ export const Photo = styled.div`
 
   img {
     max-width: 100%;
-    height: 150px;
+    height: 170px;
     object-fit: cover;
   }
 `;
@@ -39,32 +39,36 @@ export const Align = styled.div`
 
 export const Name = styled.div`
   width: 80%;
+  height:50px;
   color: #5cb646;
   text-align:left;
 `;
 
 export const Quantity = styled.div`
   width: 24%;
+  height:40px;
   padding: 2px;
+  text-align:center;
   color: #5cb646;
   border: 1px solid #5cb646;
   border-top-right-radius: 8px;
-  margin:-11px -9.5px 0 0;
+  margin:-12px -9.5px 0 0;
 `;
 
 
 export const Description = styled.div`
   width: 100%;
-  height:37px;
+  height:30px;
   color: #b8b8b8;
   letter-spacing: -0.39px;
+  padding-top:5px;
   font-size: 12px;
   line-height:25px;
 `;
 
 export const Price = styled.div`
   width: 100%;
-margin-top:10px;
+margin-top:15px;
 `;
 export const Add = styled.button`
   padding: 7px;
