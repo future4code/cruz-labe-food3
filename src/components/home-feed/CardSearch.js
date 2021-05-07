@@ -1,11 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { CardFood } from "./style"
+import { goToRestaurant } from "../../routes/coordinator";
 
 const CardSearch = ({ restaurants }) => {
+  const history = useHistory()
 
   return (<>
     {restaurants.map(data => 
-      <CardFood key={data.id}>
+      <CardFood key={data.id} onClick={() => goToRestaurant(history, data.id)}>
         <img src={data.logoUrl} />
         <div>
           <p>{data.name}</p>
