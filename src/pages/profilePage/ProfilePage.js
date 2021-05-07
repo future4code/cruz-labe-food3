@@ -15,6 +15,7 @@ import {
   Email,
 } from "./styled";
 import { goToEditProfilePage } from "../../routes/coordinator";
+import { goToEditAddressPage } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import { getActiveOrder } from "../../services/getActiveOrder";
 
@@ -97,7 +98,7 @@ const ProfilePage = () => {
           <AddressContainer>
             <p>Endereço cadastrado</p>
             <p>{profile.address}</p>
-            <button>
+            <button onClick={() => goToEditAddressPage(history)}>
               <img src={EditIcon} />
             </button>
           </AddressContainer>

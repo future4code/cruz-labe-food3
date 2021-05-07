@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Arrow from "../../images/arrow.svg";
+import { useHistory } from "react-router-dom";
+import { goToLastPage } from "../../routes/coordinator";
 
 const ButtonContainer = styled.button`
   background-color: transparent;
@@ -9,9 +11,10 @@ const ButtonContainer = styled.button`
 `;
 
 const ButtonHeader = (props) => {
+  const history = useHistory();
   return (
     <>
-      <ButtonContainer>
+      <ButtonContainer onClick={() => goToLastPage(history)}>
         <img src={Arrow} />
       </ButtonContainer>
     </>
