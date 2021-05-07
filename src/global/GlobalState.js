@@ -12,9 +12,10 @@ const GlobalState = (props) => {
     removeItemCart,
     infoRest,
     setInfoRest,
+    clearCart,
   ] = useCartState();
   const [orders, setOrders] = useState([]);
-  const [isUpdate, setIsUpdate] = useState(false)
+  const [isUpdate, setIsUpdate] = useState(false);
 
   const cart = {
     cartState,
@@ -22,6 +23,7 @@ const GlobalState = (props) => {
     removeItemCart,
     infoRest,
     setInfoRest,
+    clearCart,
   };
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const GlobalState = (props) => {
       } else {
         console.log(res.message);
       }
-      setIsUpdate(false)
+      setIsUpdate(false);
     })();
   }, [isUpdate]);
 

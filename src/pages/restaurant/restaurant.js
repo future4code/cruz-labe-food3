@@ -17,7 +17,6 @@ import {
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
 import GlobalContext from "../../global/globalContext";
 
-
 const Restaurant = () => {
   const [restaurantDetail, setRestaurantDetail] = useState(null);
   const { idRest } = useParams();
@@ -49,38 +48,33 @@ const Restaurant = () => {
 
   return (
     <div>
-<
-   <CardContainer> <Header name={"Restaurante"} /></CardContainer>
-       <MainContainer> {restaurantDetail && (
-         
-          <div>    <Cards>
-
-            <Photo>
-              <img src={restaurantDetail.logoUrl} />
-            </Photo>
-            <Name> {restaurantDetail.name} </Name>
-            <Type>{restaurantDetail.category} </Type>
-            <Time> {restaurantDetail.deliveryTime} min </Time>
-            <Shipping>
-              R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
-            </Shipping>
-            <Adress> {restaurantDetail.address} </Adress>
-
+      <CardContainer>
+        <Header name={"Restaurante"} />
+      </CardContainer>
+      <MainContainer>
+        {restaurantDetail && (
+          <div>
+            <Cards>
+              <Photo>
+                <img src={restaurantDetail.logoUrl} />
+              </Photo>
+              <Name> {restaurantDetail.name} </Name>
+              <Type>{restaurantDetail.category} </Type>
+              <Time> {restaurantDetail.deliveryTime} min </Time>
+              <Shipping>
+                R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
+              </Shipping>
+              <Adress> {restaurantDetail.address} </Adress>
             </Cards>
-
-            </div>
-          
+          </div>
         )}
-
-
-      {restaurantDetail && (
-        <Card
-          infoRestaurant={infoRestaurant}
-          products={restaurantDetail.products}
-        />
-      )}
-    </MainContainer>
- 
+        {restaurantDetail && (
+          <Card
+            infoRestaurant={infoRestaurant}
+            products={restaurantDetail.products}
+          />
+        )}
+      </MainContainer>
 
       <Footer restaurant />
     </div>
