@@ -36,29 +36,43 @@ export const Align = styled.div`
   flex-wrap: wrap;
 `;
 
+
 export const Name = styled.div`
-  width: 100%;
+  width: 80%;
   color: #5cb646;
+  text-align:left;
 `;
+
+export const Quantity = styled.div`
+  width: 24%;
+  padding: 2px;
+  color: #5cb646;
+  border: 1px solid #5cb646;
+  border-top-right-radius: 8px;
+  margin:-11px -9.5px 0 0;
+`;
+
 
 export const Description = styled.div`
   width: 100%;
+  height:37px;
   color: #b8b8b8;
   letter-spacing: -0.39px;
   font-size: 12px;
+  line-height:25px;
 `;
 
 export const Price = styled.div`
   width: 100%;
+margin-top:10px;
 `;
-
 export const Add = styled.button`
   padding: 7px;
   color: #5cb646;
   border: 1px solid #5cb646;
   border-bottom-right-radius: 8px;
   background: none;
-  margin: 0 -9.5px -16.5px 0;
+margin-right:-9.5px;
 `;
 
 export const Remove = styled.button`
@@ -67,7 +81,7 @@ export const Remove = styled.button`
   border: 1px solid red;
   border-bottom-right-radius: 8px;
   background: none;
-  margin: 0 -9.5px -16.5px 0;
+  margin-right:-9.5px;
 `;
 
 export const H3 = styled.h3`

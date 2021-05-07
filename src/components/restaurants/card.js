@@ -4,6 +4,7 @@ import {
   Photo,
   Align,
   Name,
+  Quantity,
   Description,
   Price,
   Remove,
@@ -13,7 +14,7 @@ import GlobalContext from "../../global/globalContext";
 import ModalQuantity from "./ModalQuantity";
 
 const Card = ({ products }) => {
-  const [qtd, handleQtd] = useState(1);
+  const [qtd, handleQtd] = useState(0);
   const { cart } = useContext(GlobalContext);
 
   const onChangeSelected = (e) => {
@@ -27,7 +28,7 @@ const Card = ({ products }) => {
     };
 
     cart.addItemCart(product);
-    handleQtd(1);
+    handleQtd(qtd);
   };
 
   const removeCart = (id) => {
@@ -45,9 +46,10 @@ const Card = ({ products }) => {
             <img src={item.photoUrl} />
           </Photo>
           <Align>
-            <Name>{item.name}</Name>
+            <Name>{item.name}</Name> <Quantity>{qtd}</Quantity>
+
             <Description>{item.description}</Description>
-            <Price>{item.price}</Price>
+            <Price>R${item.price.toFixed(2)}</Price>
 
             {itemCart && (
               <Remove onClick={() => removeCart(item.id)}>Remover</Remove>

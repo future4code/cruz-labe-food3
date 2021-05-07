@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Card from "../../components/restaurants/card";
+import Header from "../../components/header/Header";
 import {
+  CardContainer,
   MainContainer,
   Photo,
   Name,
@@ -30,20 +32,22 @@ const Restaurant = () => {
 
   return (
     <div>
-      <MainContainer>
+   <CardContainer> <Header name={"Restaurante"} /></CardContainer>
         {restaurantDetail && (
-          <div>
+         
+          <div>     <MainContainer>
             <Photo>
               <img src={restaurantDetail.logoUrl} />
             </Photo>
             <Name> {restaurantDetail.name} </Name>
             <Type>{restaurantDetail.category} </Type>
-            <Time> {restaurantDetail.deliveryTime} </Time>
-            <Shipping>{restaurantDetail.shipping}</Shipping>
+            <Time> {restaurantDetail.deliveryTime} min </Time>
+            <Shipping>R${restaurantDetail.shipping.toFixed(2)}</Shipping>
             <Adress> {restaurantDetail.address} </Adress>
-          </div>
+            </MainContainer> </div>
+          
         )}
-      </MainContainer>
+
 
       {restaurantDetail && <Card products={restaurantDetail.products} />}
     </div>

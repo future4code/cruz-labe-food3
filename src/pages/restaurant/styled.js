@@ -1,6 +1,10 @@
 import react from "react";
 import styled from "styled-components";
 
+export const CardContainer = styled.div`
+height:80px;
+`;
+
 export const MainContainer = styled.div`
   width: 92vw;
   margin: 4vw;
