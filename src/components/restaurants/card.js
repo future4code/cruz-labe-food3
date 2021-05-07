@@ -4,6 +4,7 @@ import {
   Photo,
   Align,
   Name,
+  Quantity,
   Description,
   Price,
   Remove,
@@ -27,7 +28,7 @@ const Card = ({ products }) => {
     };
 
     cart.addItemCart(product);
-    handleQtd(1);
+    handleQtd(qtd);
   };
 
   const removeCart = (id) => {
@@ -45,9 +46,10 @@ const Card = ({ products }) => {
             <img src={item.photoUrl} />
           </Photo>
           <Align>
-            <Name>{item.name}</Name>
+            <Name>{item.name}</Name>{itemCart && <Quantity>{itemCart.quantity}</Quantity> }
+
             <Description>{item.description}</Description>
-            <Price>{item.price}</Price>
+            <Price>R${item.price.toFixed(2).replace(".", ",")}</Price>
 
             {itemCart && (
               <Remove onClick={() => removeCart(item.id)}>Remover</Remove>
