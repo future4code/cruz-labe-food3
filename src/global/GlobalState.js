@@ -6,13 +6,21 @@ import GlobalContext from "./globalContext";
 
 const GlobalState = (props) => {
   const [restaurants, setRestaurants] = useState([]);
-  const [cartState, addItemCart, removeItemCart] = useCartState();
+  const [
+    cartState,
+    addItemCart,
+    removeItemCart,
+    infoRest,
+    setInfoRest,
+  ] = useCartState();
   const [orders, setOrders] = useState([]);
 
   const cart = {
     cartState,
     addItemCart,
     removeItemCart,
+    infoRest,
+    setInfoRest,
   };
 
   useEffect(() => {

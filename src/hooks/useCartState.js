@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export const useCartState = () => {
   const [cartState, setCartState] = useState([]);
+  const [infoRest, setInfoRest] = useState({})
 
   const addItemCart = (item) => {
     setCartState([...cartState, item]);
@@ -12,5 +13,7 @@ export const useCartState = () => {
     setCartState(newArray);
   };
 
-  return [cartState, addItemCart, removeItemCart];
+  
+
+  return [cartState, addItemCart, removeItemCart, infoRest, setInfoRest];
 };
