@@ -14,7 +14,7 @@ import {
 import GlobalContext from "../../global/globalContext";
 import ModalQuantity from "./ModalQuantity";
 
-const Card = ({ products }) => {
+const Card = ({ products, inCart, infoRestaurant }) => {
   const [qtd, handleQtd] = useState(1);
   const { cart } = useContext(GlobalContext);
 
@@ -23,13 +23,22 @@ const Card = ({ products }) => {
   };
 
   const addCart = (item) => {
-    const product = {
-      ...item,
-      quantity: qtd,
-    };
+    if (!cart.infoRest.id || cart.infoRest.id === infoRestaurant.id) {
+      cart.setInfoRest(infoRestaurant);
 
-    cart.addItemCart(product);
-    handleQtd(qtd);
+      const product = {
+        ...item,
+        quantity: qtd,
+        totalValue: item.price * qtd,
+      };
+
+      cart.addItemCart(product);
+      handleQtd(qtd);
+    } else {
+      alert(
+        "Existem itens de outro restaurante no carrinho! Para prosseguir, por favor remova-os"
+      );
+    }
   };
 
   const removeCart = (id) => {
@@ -41,13 +50,14 @@ const Card = ({ products }) => {
 
     return (
       <div key={item.id}>
-        <H3>{item.category} </H3>
+        {!inCart && <H3>{item.category} </H3>}
         <MainContainer>
           <Photo>
             <img src={item.photoUrl} />
           </Photo>
           <Align>
-            <Name>{item.name}</Name>{itemCart && <Quantity>{itemCart.quantity}</Quantity> }
+            <Name>{item.name}</Name>
+            {itemCart && <Quantity>{itemCart.quantity}</Quantity>}
 
             <Description>{item.description}</Description>
             <Price>R${item.price.toFixed(2).replace(".", ",")}</Price>

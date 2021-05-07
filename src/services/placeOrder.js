@@ -4,7 +4,7 @@ import { headerApi } from "./config/headerApi";
 
 export const placeOrder = async (idRest, body) => {
   try {
-    const response = axios.post(
+    const response = await axios.post(
       `${baseUrl}/restaurants/${idRest}/order`,
       body,
       headerApi()

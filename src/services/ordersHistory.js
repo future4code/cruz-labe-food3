@@ -7,6 +7,7 @@ export const ordersHistory = async () => {
     const response = await axios.get(`${baseUrl}/orders/history`, headerApi());
 
     const { data } = response;
+    console.log(data);
 
     return {
       data,

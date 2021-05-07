@@ -1,8 +1,12 @@
 import { FormControlLabel, RadioGroup } from "@material-ui/core";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
+import GlobalContext from "../../global/globalContext";
 import useForm from "../../hooks/useForm";
+import { goToHomePage } from "../../routes/coordinator";
 import { getActiveOrder } from "../../services/getActiveOrder";
+import { getFullAdress } from "../../services/getFullAdress";
 import { placeOrder } from "../../services/placeOrder";
 import Order from "./Order";
 import {
@@ -28,27 +32,66 @@ const initialValue = {
 };
 
 export default function MyCartPage() {
+  const [userAddress, setUserAddress] = useState("");
   const [form, handleInputChange] = useForm(initialValue);
+  const [totalCart, setTotalCart] = useState(0);
+  const { cart } = useContext(GlobalContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    const totalValue = cart.cartState.reduce((acc, curr) => {
+      return acc + curr.totalValue;
+    }, 0);
+
+    setTotalCart(totalValue + Number(cart.infoRest.shipping));
+  }, [cart.cartState]);
+
+  useEffect(() => {
+    (async () => {
+      const result = await getFullAdress();
+
+      if (result.status) {
+        const { street, number } = result.address;
+        const addressString = `${street}, ${number}`;
+        setUserAddress(addressString);
+      }
+    })();
+  }, []);
+
   const onClickConfirm = async () => {
     window.event.preventDefault();
 
     const { paymentMethod } = form;
 
+    const products = cart.cartState.map((item) => {
+      const { id, quantity } = item;
+
+      return { id, quantity };
+    });
+
     const body = {
-      products: [],
+      products,
       paymentMethod,
     };
 
     const hasOrder = await getActiveOrder();
 
     if (!hasOrder.order) {
-      const result = await placeOrder("id", body);
+      const result = await placeOrder(cart.infoRest.id, body);
 
       if (result.status) {
+        goToHomePage(history);
       } else {
         console.log(result.message);
       }
     }
+  };
+
+  const toMoney = (value) => {
+    return Number(value).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
   };
 
   return (
@@ -59,19 +102,26 @@ export default function MyCartPage() {
 
           <AdressCard>
             <AdressLabel>Endereço de entrega</AdressLabel>
-            <Adress>Rua Alessandra Vieira, 42</Adress>
+            <Adress>{userAddress}</Adress>
           </AdressCard>
         </ContainerHeader>
-        <p>Carrinho vazio</p>
+        {cart.cartState.length === 0 && <p>Carrinho vazio</p>}
         <ContainerScroll>
-          {/* <Order /> */}
+          {cart.cartState.length > 0 && <Order />}
           <ContainerPayment onSubmit={onClickConfirm}>
             <ContainerValues>
-              <p>Frete: R$ 0,00</p>
+              <p>
+                Frete:{" "}
+                {cart.infoRest.shipping
+                  ? toMoney(cart.infoRest.shipping)
+                  : "R$ 0,00"}
+              </p>
 
               <SubTotal>
                 <span>SUBTOTAL</span>
-                <TotalValue>R$ 00,00</TotalValue>
+                <TotalValue>
+                  {cart.cartState.length > 0 ? toMoney(totalCart) : "R$ 00,00"}
+                </TotalValue>
               </SubTotal>
             </ContainerValues>
 
@@ -91,7 +141,10 @@ export default function MyCartPage() {
                 />
               </RadioGroup>
             </PaymentType>
-            <ConfirmButton type="submit" disabled={false}>
+            <ConfirmButton
+              type="submit"
+              disabled={cart.cartState.length === 0 ? true : false}
+            >
               Confirmar
             </ConfirmButton>
           </ContainerPayment>

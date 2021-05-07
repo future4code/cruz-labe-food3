@@ -16,10 +16,12 @@ import {
 } from "./styled";
 import { goToEditProfilePage } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import { getActiveOrder } from "../../services/getActiveOrder";
 
 const ProfilePage = () => {
   const [orders, setOrders] = useState([]);
   const [profile, setProfile] = useState({});
+  const [hasOrder, setHasOrder] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
@@ -39,6 +41,18 @@ const ProfilePage = () => {
 
       if (res.status) {
         setProfile(res.user);
+      } else {
+        console.log(res.message);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getActiveOrder();
+
+      if (res.status) {
+        setHasOrder(res.order);
       } else {
         console.log(res.message);
       }
@@ -91,7 +105,11 @@ const ProfilePage = () => {
       </MainContainer>
       <OrdersHistoryContainer>
         <p>Histórico de Pedidos</p>
-        {getListOrders()}
+        {orders.length === 0 ? (
+          <span>Você não realizou nenhum pedido</span>
+        ) : (
+          getListOrders()
+        )}
       </OrdersHistoryContainer>
       <FooterContainer>
         <Footer profile />

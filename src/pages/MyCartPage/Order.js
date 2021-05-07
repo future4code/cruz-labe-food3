@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import Card from "../../components/restaurants/card";
+import GlobalContext from "../../global/globalContext";
 import {
-  CardItem,
   ContainerOrder,
   LabelRestaurantName,
   RestaurantAdress,
 } from "./styled";
 
 export default function Order() {
+  const { cart } = useContext(GlobalContext);
   return (
     <ContainerOrder>
       <RestaurantAdress>
-        <LabelRestaurantName>Bullguer Vila Madalena</LabelRestaurantName>
-        <p>R. Fradique Coutinho, 1136 - Vila Madalena</p>
-        <p>30 - 40 mim</p>
+        <LabelRestaurantName>{cart.infoRest.name}</LabelRestaurantName>
+        <p>{cart.infoRest.address}</p>
+        <p>{cart.infoRest.deliveryTime} min</p>
       </RestaurantAdress>
-      <CardItem />
-      <CardItem />
+      <Card inCart products={cart.cartState} />
     </ContainerOrder>
   );
 }
