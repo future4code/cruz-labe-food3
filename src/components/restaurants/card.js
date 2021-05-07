@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import image from "../../images/image.png";
+import React, { useState, useContext } from "react";
 import {
   MainContainer,
   Photo,
@@ -7,111 +6,60 @@ import {
   Name,
   Description,
   Price,
-  Add,
+  Remove,
   H3,
 } from "./styled";
-import { Modal } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import Button from "@material-ui/core/Button";
-import { getRestaurantDetail } from "../../services/getRestaurantDetail";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    position: "absolute",
-    width: "80vw",
-    padding: "5vw",
-    backgroundColor: "white",
-    border: "2px spliod #000000",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    textAlign: "center",
-  },
-  formControl: {
-    minWidth: "65vw",
-    margin: "15px 0px",
-  },
-  selectEmpty: {
-    margin: "15px 0px",
-  },
-  align: {
-    display: "flex",
-    justifyContent: "flex-end",
-  },
-  button: {
-    backgroundColor: "none",
-    border: "0",
-    color: "#5cb646",
-    padding: "0",
-  },
-}));
+import GlobalContext from "../../global/globalContext";
+import ModalQuantity from "./ModalQuantity";
 
 const Card = ({ products }) => {
-  const styles = useStyles();
-  const [modal, handleModal] = useState(false);
-  const [qtd, handleQtd] = useState(0);
+  const [qtd, handleQtd] = useState(1);
+  const { cart } = useContext(GlobalContext);
 
   const onChangeSelected = (e) => {
     handleQtd(e.target.value);
   };
 
-  const setModal = () => {
-    handleModal(!modal);
+  const addCart = (item) => {
+    const product = {
+      ...item,
+      quantity: qtd,
+    };
+
+    cart.addItemCart(product);
+    handleQtd(1);
   };
 
-  const body = (
-    <div className={styles.modal}>
-      Selecione a quantidade desejada
-      <FormControl variant="outlined" className={styles.formControl}>
-        <Select
-          value={qtd}
-          onChange={onChangeSelected}
-          displayEmpty
-          className={styles.selectEmpty}
-          inputProps={{ "aria-label": "Without label" }}
-        >
-          <MenuItem selected value={0}>
-            <em>Retirar</em>
-          </MenuItem>
-          <MenuItem value={1}>1 unidade</MenuItem>
-          <MenuItem value={2}>2 unidades</MenuItem>
-          <MenuItem value={3}>3 unidades</MenuItem>
-          <MenuItem value={4}>4 unidades</MenuItem>
-          <MenuItem value={5}>5 unidades</MenuItem>
-          <MenuItem value={6}>6 unidades</MenuItem>
-          <MenuItem value={7}>7 unidades</MenuItem>
-          <MenuItem value={8}>8 unidades</MenuItem>
-          <MenuItem value={9}>9 unidades</MenuItem>
-          <MenuItem value={10}>10 unidades</MenuItem>
-        </Select>
-
-        <div className={styles.align}>
-          <Button className={styles.button}>Adicionar ao carrinho</Button>
-        </div>
-      </FormControl>
-    </div>
-  );
+  const removeCart = (id) => {
+    cart.removeItemCart(id);
+  };
 
   const restaurantList = products.map((item) => {
+    const itemCart = cart.cartState.find((product) => product.id === item.id);
+
     return (
-      <div>
+      <div key={item.id}>
         <H3>{item.category} </H3>
         <MainContainer>
-          <Photo key={item.id}>
+          <Photo>
             <img src={item.photoUrl} />
           </Photo>
           <Align>
-            {" "}
             <Name>{item.name}</Name>
             <Description>{item.description}</Description>
             <Price>{item.price}</Price>
-            <Add onClick={setModal}>Adicionar</Add>
-            <Modal open={modal} onClose={setModal}>
-              {body}
-            </Modal>
+
+            {itemCart && (
+              <Remove onClick={() => removeCart(item.id)}>Remover</Remove>
+            )}
+            {!itemCart && (
+              <ModalQuantity
+                item={item}
+                addCart={addCart}
+                qtd={qtd}
+                onChangeSelected={onChangeSelected}
+              />
+            )}
           </Align>
         </MainContainer>
       </div>
