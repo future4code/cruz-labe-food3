@@ -66,7 +66,7 @@ const EditAddressForm = () => {
       state,
     };
 
-    const result = await addAddress(body);
+    await addAddress(body);
     alert("Perfil atualizado com sucesso! :)");
     goToProfile(history);
   };

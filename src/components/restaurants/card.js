@@ -53,7 +53,7 @@ const Card = ({ products, inCart, infoRestaurant }) => {
         {!inCart && <H3>{item.category} </H3>}
         <MainContainer>
           <Photo>
-            <img src={item.photoUrl} />
+            <img src={item.photoUrl} alt="" />
           </Photo>
           <Align>
             <Name>{item.name}</Name>

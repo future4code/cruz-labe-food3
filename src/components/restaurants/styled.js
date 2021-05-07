@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -39,7 +38,6 @@ justify-content: flex-start;
 flex-wrap: wrap;
 `;
 
-
 export const Name = styled.div`
 width: 80%;
 height:50px;
@@ -49,15 +47,14 @@ text-align:left;
 
 export const Quantity = styled.div`
   width: 24%;
-  height:40px;
+  height: 40px;
   padding: 2px;
-  text-align:center;
+  text-align: center;
   color: #5cb646;
   border: 1px solid #5cb646;
   border-top-right-radius: 8px;
-  margin:-12px -9.5px 0 0;
+  margin: -12px -9.5px 0 0;
 `;
-
 
 export const Description = styled.div`
 width: 100%;

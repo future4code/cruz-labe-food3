@@ -15,9 +15,10 @@ import {
   Adress,
 } from "./styled";
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
-import GlobalContext from "../../global/globalContext";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const Restaurant = () => {
+  useProtectedPage();
   const [restaurantDetail, setRestaurantDetail] = useState(null);
   const { idRest } = useParams();
   const history = useHistory();
@@ -51,6 +52,7 @@ const Restaurant = () => {
       <CardContainer>
         <Header name={"Restaurante"} />
       </CardContainer>
+
       <MainContainer>
         {restaurantDetail && (
           <div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TextField, makeStyles } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { SaveButton } from "./styled";
@@ -18,7 +18,7 @@ const AddAddressForm = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [form, onChange, clear] = useForm({
+  const [form, onChange] = useForm({
     street: "",
     number: "",
     neighbourhood: "",

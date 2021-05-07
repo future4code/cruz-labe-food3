@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import EditIcon from "../../images/edit-icon.png";
+import EditIcon from "../../assets/images/edit-icon.png";
 import CardOrder from "./CardOrder";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -17,9 +17,11 @@ import {
 import { goToEditProfilePage } from "../../routes/coordinator";
 import { goToEditAddressPage } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import useProtectedPage from "../../hooks/useProtectedPage";
 import { getActiveOrder } from "../../services/getActiveOrder";
 
 const ProfilePage = () => {
+  useProtectedPage();
   const [orders, setOrders] = useState([]);
   const [profile, setProfile] = useState({});
   const [hasOrder, setHasOrder] = useState(0);
@@ -70,6 +72,7 @@ const ProfilePage = () => {
       orders.map((item) => {
         return (
           <CardOrder
+            key={item.id}
             totalPrice={item.totalPrice.toFixed(2)}
             restaurantName={item.restaurantName}
             createdAt={formatter.format(item.createdAt)}
@@ -89,6 +92,7 @@ const ProfilePage = () => {
             <button>
               <img
                 src={EditIcon}
+                alt=""
                 onClick={() => goToEditProfilePage(history)}
               />
             </button>
@@ -98,8 +102,9 @@ const ProfilePage = () => {
           <AddressContainer>
             <p>Endereço cadastrado</p>
             <p>{profile.address}</p>
+
             <button onClick={() => goToEditAddressPage(history)}>
-              <img src={EditIcon} />
+              <img src={EditIcon} alt=""/>
             </button>
           </AddressContainer>
         </DataContainer>
