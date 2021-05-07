@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# <h1 align='center'>Projeto Final de Front-End</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## FutureEats
 
-## Available Scripts
+<p align="justify">Projeto realizado como prática de:</p>
+<ul>
+    <li>Custom Hooks</li>
+    <li>React Router</li>
+    <li>Autenticação e controle de acesso com o Local Storage</li>
+    <li>Forms</li>
+    <li>Integração da API LabeX</li>
+</ul>
 
-In the project directory, you can run:
+## Link do surge e login admin
 
-### `yarn start`
+https://
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### x Páginas
 
-### `yarn test`
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Integração com os seguintes endpoints da API FutureEats
 
-### `yarn build`
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
+- [x] ;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Extras
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [x] ;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Imagens
 
-### `yarn eject`
+## 🛠 Tecnologias
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<a href="https://pt-br.reactjs.org/">🔗 React</a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Biblioteca para desenvolvimento de interfaces do usuário utilizando componentes reutilizáveis.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<a href="https://material-ui.com/">🔗 Material UI</a>
+<a href="https://chakra-ui.com/">🔗 Chakra UI</a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Bibliotecas de componentes do React utilizadaa para facilitar o desenvolvimento da UI.
 
-## Learn More
+## 🚀 Autoras e Autores
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/alexa2me">
+    <img src="https://avatars.githubusercontent.com/u/63327969?s=460&v=4" width="100px" alt="Imagem do perfil da Alexandra"/>
+    <br />
+    <sub><b>Alexandra Alcantara</b></sub><br />:snowflake::snowman::snowflake:</td>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    <td align="center"><a href="https://github.com/AngeloVSO">
+    <img src="https://avatars.githubusercontent.com/u/70985334?v=4" width="100px" alt="Imagem do perfil do
+    Angelo O'Dwyer"/>
+    <br />
+    <sub><b>Angelo O'Dwyer</b></sub><br /></td>
 
-### Code Splitting
+    <td align="center"><a href="https://github.com/fagnerzulin">
+    <img src="https://avatars.githubusercontent.com/u/52076737?v=4" width="100px" alt="Imagem do perfil do Fagner Alexandre Zulin"/>
+    <br />
+    <sub><b>Fagner Alexandre Zulin</b></sub><br /></td>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    <td align="center"><a href="https://github.com/quirinojess">
+    <img src="https://avatars.githubusercontent.com/u/77936030?v=4" width="100px" alt="Imagem do perfil da Jéssica Quirino"/>
+    <br />
+    <sub><b>Jéssica Quirino</b></sub><br /></td>
 
-### Analyzing the Bundle Size
+    <td align="center"><a href="https://github.com/paula-lopes">
+    <img src="https://avatars.githubusercontent.com/u/77751963?v=4" width="100px" alt="Imagem do perfil da Paula Lopes"/>
+    <br />
+    <sub><b>Paula Lopes</b></sub><br /></td>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</table>
