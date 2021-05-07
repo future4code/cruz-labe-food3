@@ -6,6 +6,7 @@ import Footer from "../../components/footer/Footer";
 import {
   CardContainer,
   MainContainer,
+  Cards,
   Photo,
   Name,
   Type,
@@ -15,6 +16,7 @@ import {
 } from "./styled";
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
 import GlobalContext from "../../global/globalContext";
+
 
 const Restaurant = () => {
   const [restaurantDetail, setRestaurantDetail] = useState(null);
@@ -47,14 +49,12 @@ const Restaurant = () => {
 
   return (
     <div>
-      <CardContainer>
-        {" "}
-        <Header name={"Restaurante"} />
-      </CardContainer>
-      {restaurantDetail && (
-        <div>
-          {" "}
-          <MainContainer>
+<
+   <CardContainer> <Header name={"Restaurante"} /></CardContainer>
+       <MainContainer> {restaurantDetail && (
+         
+          <div>    <Cards>
+
             <Photo>
               <img src={restaurantDetail.logoUrl} />
             </Photo>
@@ -65,9 +65,13 @@ const Restaurant = () => {
               R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
             </Shipping>
             <Adress> {restaurantDetail.address} </Adress>
-          </MainContainer>{" "}
-        </div>
-      )}
+
+            </Cards>
+
+            </div>
+          
+        )}
+
 
       {restaurantDetail && (
         <Card
@@ -75,6 +79,8 @@ const Restaurant = () => {
           products={restaurantDetail.products}
         />
       )}
+    </MainContainer>
+ 
 
       <Footer restaurant />
     </div>
