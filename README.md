@@ -2,45 +2,42 @@
 
 ## FutureEats
 
-<p align="justify">Projeto realizado como prática de:</p>
-<ul>
-    <li>Custom Hooks</li>
-    <li>React Router</li>
-    <li>Autenticação e controle de acesso com o Local Storage</li>
-    <li>Forms</li>
-    <li>Integração da API LabeX</li>
-</ul>
+<p align="justify">Projeto final realizado como prática de todo o conteúdo do módulo de front-end, desde o básico de Git, GitHub, HTML, CSS e JavaScript até React Avançado e ferramentas de design system.</p>
 
 ## Link do surge
 
-https://
+https://the-best-future-eats.surge.sh
 
 ## Features
 
-### x Páginas
+### 12 Telas e Componentes
 
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
+- [ ] Tela inicial;
+- [x] Login;
+- [x] Cadastro de endereço;
+- [x] Sign up;
+- [x] Home page;
+- [x] Pesquisa;
+- [x] Carrinho;
+- [x] Restaurantes;
+- [x] Pedido em andamento;
+- [x] Perfil;
+- [x] Editar perfil;
+- [x] Editar endereço.
 
 ### Integração com os seguintes endpoints da API FutureEats
 
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-- [x] ;
-
-### Extras
-
-- [x] ;
+- [x] Login;
+- [x] Signup;
+- [x] Add Address;
+- [x] Get Full Address;
+- [x] Get Profile;
+- [x] Update Profile;
+- [x] Get Restaurants;
+- [x] Get Restaurant Detail;
+- [x] Place Order;
+- [x] Get Active Order;
+- [x] Orders History;
 
 ## Imagens
 
@@ -50,7 +47,7 @@ https://
 
 - Biblioteca para desenvolvimento de interfaces do usuário utilizando componentes reutilizáveis.
 
-<a href="https://material-ui.com/">🔗 Material UI</a>
+<a href="https://material-ui.com/">🔗 Material UI</a><br />
 <a href="https://chakra-ui.com/">🔗 Chakra UI</a>
 
 - Bibliotecas de componentes do React utilizadaa para facilitar o desenvolvimento da UI.
