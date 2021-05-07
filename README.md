@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# <h1 align='center'>Projeto Final de Front-End</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## FutureEats
 
-## Available Scripts
+<p align="justify">Projeto final realizado como prática de todo o conteúdo do módulo de front-end, desde o básico de Git, GitHub, HTML, CSS e JavaScript até React Avançado e ferramentas de design system.</p>
 
-In the project directory, you can run:
+## Link do surge
 
-### `yarn start`
+https://the-best-future-eats.surge.sh
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 12 Telas e Componentes
 
-### `yarn test`
+- [ ] Tela inicial;
+- [x] Login;
+- [x] Cadastro de endereço;
+- [x] Sign up;
+- [x] Home page;
+- [x] Pesquisa;
+- [x] Carrinho;
+- [x] Restaurantes;
+- [x] Pedido em andamento;
+- [x] Perfil;
+- [x] Editar perfil;
+- [x] Editar endereço.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Integração com os seguintes endpoints da API FutureEats
 
-### `yarn build`
+- [x] Login;
+- [x] Signup;
+- [x] Add Address;
+- [x] Get Full Address;
+- [x] Get Profile;
+- [x] Update Profile;
+- [x] Get Restaurants;
+- [x] Get Restaurant Detail;
+- [x] Place Order;
+- [x] Get Active Order;
+- [x] Orders History;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Imagens
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠 Tecnologias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a href="https://pt-br.reactjs.org/">🔗 React</a>
 
-### `yarn eject`
+- Biblioteca para desenvolvimento de interfaces do usuário utilizando componentes reutilizáveis.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<a href="https://material-ui.com/">🔗 Material UI</a><br />
+<a href="https://chakra-ui.com/">🔗 Chakra UI</a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Bibliotecas de componentes do React utilizadaa para facilitar o desenvolvimento da UI.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 Autoras e Autores
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/alexa2me">
+    <img src="https://avatars.githubusercontent.com/u/63327969?s=460&v=4" width="100px" alt="Imagem do perfil da Alexandra"/>
+    <br />
+    <sub><b>Alexandra Alcantara</b></sub><br />:snowflake::snowman::snowflake:</td>     
+    <td align="center"><a href="https://github.com/AngeloVSO">
+    <img src="https://avatars.githubusercontent.com/u/70985334?v=4" width="100px" alt="Imagem do perfil do
+    Angelo O'Dwyer"/>
+    <br />
+    <sub><b>Angelo O'Dwyer</b></sub><br /></td>
+    <td align="center"><a href="https://github.com/fagnerzulin">
+    <img src="https://avatars.githubusercontent.com/u/52076737?v=4" width="100px" alt="Imagem do perfil do Fagner Alexandre Zulin"/>
+    <br />
+    <sub><b>Fagner Alexandre Zulin</b></sub><br /></td>
+    <td align="center"><a href="https://github.com/quirinojess">
+    <img src="https://avatars.githubusercontent.com/u/77936030?v=4" width="100px" alt="Imagem do perfil da Jéssica Quirino"/>
+    <br />
+    <sub><b>Jéssica Quirino</b></sub><br /></td>
+    <td align="center"><a href="https://github.com/paula-lopes">
+    <img src="https://avatars.githubusercontent.com/u/77751963?v=4" width="100px" alt="Imagem do perfil da Paula Lopes"/>
+    <br />
+    <sub><b>Paula Lopes</b></sub><br /></td>
+</table>

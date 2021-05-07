@@ -30,7 +30,6 @@ const GlobalState = (props) => {
   useEffect(() => {
     (async () => {
       const res = await getActiveOrder();
-      console.log("res.order aqui:", res.order);
 
       res.status && setOrders(res.order);
     })();
