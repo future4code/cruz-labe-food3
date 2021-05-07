@@ -7,11 +7,6 @@ export const MainContainer = styled.div`
   margin: 16px 20px 20px 20px;
 `;
 
-export const TopText = styled.p`
-  margin-top: 28px;
-  margin-bottom: 5px;
-`;
-
 export const SaveButton = styled.button`
   width: 100%;
   border-radius: 5px;
@@ -23,13 +18,19 @@ export const SaveButton = styled.button`
   height: 42px;
 `;
 
+export const TopText = styled.p`
+  justify-self: center;
+`;
+
 export const Header = styled.header`
   height: 44px;
   margin: 0 auto;
   border-bottom: 1px solid lightgray;
   width: 100vw;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1px 1fr;
   align-items: center;
+  justify-content: center;
 `;
 
 export const ArrowContainer = styled.img`

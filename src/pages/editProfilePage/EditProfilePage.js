@@ -1,11 +1,11 @@
 import React from "react";
-import AddAddressForm from "./AddAddressForm";
+import EditProfileForm from "./EditProfileForm";
 import { MainContainer, TopText, Header, ArrowContainer } from "./styled";
 import Arrow from "../../images/arrow.svg";
 import { useHistory } from "react-router";
 import { goToLastPage } from "../../routes/coordinator";
 
-const AddAddressPage = () => {
+const EditProfilePage = () => {
   const history = useHistory();
 
   return (
@@ -16,13 +16,13 @@ const AddAddressPage = () => {
           onClick={() => goToLastPage(history)}
           alt="seta para voltar"
         />
+        <TopText>Editar</TopText>
       </Header>
       <MainContainer>
-        <TopText>Meu endereço</TopText>
-        <AddAddressForm />
+        <EditProfileForm />
       </MainContainer>
     </div>
   );
 };
 
-export default AddAddressPage;
+export default EditProfilePage;

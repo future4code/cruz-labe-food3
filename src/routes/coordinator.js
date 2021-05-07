@@ -29,3 +29,11 @@ export const goToSearch = (history) => {
 export const goToEditAddressPage = (history) => {
   history.push("/editAddress");
 };
+
+export const goToEditProfilePage = (history) => {
+  history.push("/editProfile");
+};
+
+export const goToLastPage = (history) => {
+  history.goBack();
+};

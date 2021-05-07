@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { TextField } from "@material-ui/core";
 import { SaveButton } from "./styled";
 import { getFullAdress } from "../../services/getFullAdress";
-import { addAdress } from "../../services/addAdress";
+import { addAddress } from "../../services/addAddress";
 import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 
@@ -66,7 +66,7 @@ const EditAddressForm = () => {
       state,
     };
 
-    const result = await addAdress(body);
+    const result = await addAddress(body);
     alert("Perfil atualizado com sucesso! :)");
     goToProfile(history);
   };

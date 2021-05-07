@@ -16,7 +16,6 @@ export const signUp = async (body) => {
     };
   } catch (error) {
     const { message } = error.response.data;
-
     return {
       message,
       status: false,

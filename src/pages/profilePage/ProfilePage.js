@@ -12,11 +12,15 @@ import {
   EditContainer,
   OrdersHistoryContainer,
   FooterContainer,
+  Email,
 } from "./styled";
+import { goToEditProfilePage } from "../../routes/coordinator";
+import { useHistory } from "react-router-dom";
 
 const ProfilePage = () => {
   const [orders, setOrders] = useState([]);
   const [profile, setProfile] = useState({});
+  const history = useHistory();
 
   useEffect(() => {
     (async () => {
@@ -63,15 +67,18 @@ const ProfilePage = () => {
   return (
     <>
       <MainContainer>
-        <Header name={"Perfil"} />
+        <Header name={"Meu perfil"} />
         <DataContainer>
           <EditContainer>
             <p> {profile.name}</p>
             <button>
-              <img src={EditIcon} />
+              <img
+                src={EditIcon}
+                onClick={() => goToEditProfilePage(history)}
+              />
             </button>
           </EditContainer>
-          <p>{profile.email}</p>
+          <Email>{profile.email}</Email>
           <p>{profile.cpf}</p>
           <AddressContainer>
             <p>Endereço cadastrado</p>
