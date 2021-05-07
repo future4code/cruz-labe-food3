@@ -6,13 +6,7 @@ const CardOrder = (props) => {
     <CardContainer>
       <p>{props.restaurantName}</p>
       <p>{props.createdAt}</p>
-      <p>
-        SUBTOTAL R$
-        {props.totalPrice.toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
-        })}
-      </p>
+      <p>SUBTOTAL R${props.totalPrice}</p>
     </CardContainer>
   );
 };
