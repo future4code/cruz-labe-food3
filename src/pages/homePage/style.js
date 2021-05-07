@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from "@material-ui/icons/Search";
 
 export const MainContainer = styled.main`
   display: flex;
@@ -28,15 +28,17 @@ export const Header = styled.header`
 `;
 
 export const InputArea = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 
 export const SearchIconHome = styled(SearchIcon)`
-path {fill: #b8b8b8;}
-position: absolute;
-top: 63%;
-left: 12px;
-`
+  path {
+    fill: #b8b8b8;
+  }
+  position: absolute;
+  top: 63%;
+  left: 12px;
+`;
 
 export const InputSearch = styled.input`
   width: 343px;
@@ -57,13 +59,13 @@ export const TypesFoods = styled.div`
   display: flex;
   align-items: center;
   padding: 0 8px 0 16px;
-  
+
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   overflow-x: scroll;
 
   &::-webkit-scrollbar {
-  width: 0px;
+    width: 0px;
   }
 
   p {
@@ -72,15 +74,15 @@ export const TypesFoods = styled.div`
     margin: 0 8px;
     padding-right: 8px;
 
-    :first-child {
-          color: #5cb646;
-        }
+    :hover {
+      color: #5cb646;
+    }
   }
 `;
 
 export const SearchMessage = styled(TypesFoods)`
-width: 100%;
-padding: 0;
-justify-content: center;
-font-weight: 500;
-`
+  width: 100%;
+  padding: 0;
+  justify-content: center;
+  font-weight: 500;
+`;

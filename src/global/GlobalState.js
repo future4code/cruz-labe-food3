@@ -8,6 +8,7 @@ const GlobalState = (props) => {
   const [restaurants, setRestaurants] = useState([]);
   const [cartState, addItemCart, removeItemCart] = useCartState();
   const [orders, setOrders] = useState([]);
+  const [isUpdate, setIsUpdate] = useState(false)
 
   const cart = {
     cartState,
@@ -24,8 +25,9 @@ const GlobalState = (props) => {
       } else {
         console.log(res.message);
       }
+      setIsUpdate(false)
     })();
-  }, []);
+  }, [isUpdate]);
 
   useEffect(() => {
     (async () => {
@@ -36,7 +38,7 @@ const GlobalState = (props) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ restaurants, cart, orders }}>
+    <GlobalContext.Provider value={{ restaurants, setIsUpdate, cart, orders }}>
       {props.children}
     </GlobalContext.Provider>
   );

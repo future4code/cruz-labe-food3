@@ -14,18 +14,19 @@ import GlobalContext from "../../global/globalContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import OrderInProgress from "../../components/orderInProgress/OrderInProgress";
 import { getActiveOrder } from "../../services/getActiveOrder";
+import { getRestaurants } from "../../services/getRestaurants";
 
 const HomePage = () => {
   useProtectedPage();
 
-  const { restaurants } = useContext(GlobalContext);
+  const { restaurants, setIsUpdate } = useContext(GlobalContext);
   const [filtered, setFilter] = useState([]);
   const [categories, setCategory] = useState([]);
   const [orders, setOrders] = useState([]);
   const history = useHistory();
 
   const filtredRestaurants = (category) => {
-    const filter = restaurants.filter((item) => item.category === category);
+    const filter = restaurants?.filter((item) => item.category === category);
     setFilter(filter);
   };
 
@@ -35,7 +36,9 @@ const HomePage = () => {
     return [...categoriesSet];
   };
 
-  useEffect(() => {
+    useEffect(() => {
+    setIsUpdate(true)
+    if (restaurants.length)
     setCategory(filterCategory(restaurants));
   }, [setCategory, restaurants]);
 
@@ -61,7 +64,7 @@ const HomePage = () => {
         </InputArea>
 
         <TypesFoods>
-          {categories.map((type) => (
+          {categories?.map((type) => (
             <p key={type} onClick={() => filtredRestaurants(type)}>
               {type}
             </p>
@@ -69,7 +72,7 @@ const HomePage = () => {
         </TypesFoods>
 
         <CardSearch
-          restaurants={filtered.length > 0 ? filtered : restaurants}
+          restaurants={filtered.length > 0 ? filtered :  restaurants}
         />
       </MainContainer>
       {orders !== null && orders.length !== 0 && orders !== undefined ? (
