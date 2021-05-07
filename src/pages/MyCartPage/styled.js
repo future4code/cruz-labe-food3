@@ -46,11 +46,11 @@ export const ContainerScroll = styled.div`
 export const ContainerOrder = styled.div`
   margin-top: 8px;
   width: 100%;
-  padding: 0 16px;
 `;
 
 export const RestaurantAdress = styled.div`
   margin-bottom: 8px;
+  padding: 0 16px;
   p {
     color: ${gray};
   }
