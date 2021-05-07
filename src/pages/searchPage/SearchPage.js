@@ -22,8 +22,8 @@ const SearchPage = () => {
   const [form, handleInputChange] = useForm({ search: "" });
   const history = useHistory();
 
-  const filtredRestaurants = restaurants.filter((item) =>
-    form.search ? item.name.toLowerCase().includes(form.search) : false
+  const filtredRestaurants = restaurants.filter(item =>
+    form.search ? item.name.toLowerCase().includes(form.search.toLowerCase()) : false
   );
 
   return (
