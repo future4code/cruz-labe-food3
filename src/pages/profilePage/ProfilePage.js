@@ -12,6 +12,7 @@ import {
   EditContainer,
   OrdersHistoryContainer,
   FooterContainer,
+  Email,
 } from "./styled";
 import { goToEditProfilePage } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
@@ -66,7 +67,7 @@ const ProfilePage = () => {
   return (
     <>
       <MainContainer>
-        <Header name={"Perfil"} />
+        <Header name={"Meu perfil"} />
         <DataContainer>
           <EditContainer>
             <p> {profile.name}</p>
@@ -77,7 +78,7 @@ const ProfilePage = () => {
               />
             </button>
           </EditContainer>
-          <p>{profile.email}</p>
+          <Email>{profile.email}</Email>
           <p>{profile.cpf}</p>
           <AddressContainer>
             <p>Endereço cadastrado</p>

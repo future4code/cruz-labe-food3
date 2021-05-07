@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { TextField, makeStyles } from "@material-ui/core";
-import useForm from "../../hooks/useForm";
 import { SaveButton } from "./styled";
 import clsx from "clsx";
 import { updateProfile } from "../../services/updateProfile";
 import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import { getProfile } from "../../services/getProfile";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -18,27 +18,52 @@ const useStyles = makeStyles((theme) => ({
 const EditProfileForm = () => {
   const classes = useStyles();
   const history = useHistory();
-
-  const [form, onChange] = useForm({
-    name: "",
-    email: "",
-    cpf: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [cpf, setCpf] = useState("");
 
   const onSubmitForm = async () => {
     window.event.preventDefault();
-    const result = await updateProfile(form);
+    const body = {
+      name,
+      email,
+      cpf,
+    };
+
+    await updateProfile(body);
     alert("Perfil atualizado com sucesso! :)");
     goToProfile(history);
   };
+
+  const onChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const onChangeCpf = (e) => {
+    setCpf(e.target.value);
+  };
+
+  useEffect(() => {
+    (async () => {
+      const result = await getProfile();
+      if (result.status) {
+        setName(result.user.name);
+        setEmail(result.user.email);
+        setCpf(result.user.cpf);
+      }
+    })();
+  }, []);
 
   return (
     <div>
       <form onSubmit={onSubmitForm}>
         <TextField
           name={"name"}
-          value={form.name}
-          onChange={onChange}
+          value={name}
+          onChange={onChangeName}
           label={"Nome"}
           placeholder={"Nome completo"}
           margin={"normal"}
@@ -48,10 +73,11 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
+
         <TextField
           name={"email"}
-          value={form.email}
-          onChange={onChange}
+          value={email}
+          onChange={onChangeEmail}
           label={"E-mail"}
           placeholder={"E-mail"}
           margin={"normal"}
@@ -61,10 +87,11 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
+
         <TextField
           name={"cpf"}
-          value={form.cpf}
-          onChange={onChange}
+          value={cpf}
+          onChange={onChangeCpf}
           label={"CPF"}
           placeholder={"CPF"}
           margin={"normal"}
@@ -74,7 +101,6 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
-
         <SaveButton type={"submit"}>Salvar</SaveButton>
       </form>
     </div>

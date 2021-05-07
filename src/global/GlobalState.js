@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useCartState } from "../hooks/useCartState";
+import { getActiveOrder } from "../services/getActiveOrder";
 import { getRestaurants } from "../services/getRestaurants";
 import GlobalContext from "./globalContext";
 
 const GlobalState = (props) => {
   const [restaurants, setRestaurants] = useState([]);
   const [cartState, addItemCart, removeItemCart] = useCartState();
+  const [orders, setOrders] = useState([]);
 
   const cart = {
     cartState,
@@ -25,8 +27,16 @@ const GlobalState = (props) => {
     })();
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      const res = await getActiveOrder();
+
+      res.status && setOrders(res.order);
+    })();
+  }, []);
+
   return (
-    <GlobalContext.Provider value={{ restaurants, cart }}>
+    <GlobalContext.Provider value={{ restaurants, cart, orders }}>
       {props.children}
     </GlobalContext.Provider>
   );
