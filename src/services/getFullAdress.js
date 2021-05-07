@@ -4,7 +4,7 @@ import { headerApi } from "./config/headerApi";
 
 export const getFullAdress = async () => {
   try {
-    const response = await axios.get(`${baseUrl}/address`, headerApi());
+    const response = await axios.get(`${baseUrl}/profile/address`, headerApi());
 
     const { address } = response.data;
 
