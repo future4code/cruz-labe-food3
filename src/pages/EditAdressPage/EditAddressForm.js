@@ -3,7 +3,6 @@ import { TextField } from "@material-ui/core";
 import { SaveButton } from "./styled";
 import useForm from "../../hooks/useForm";
 import { getFullAdress } from "../../services/getFullAdress";
-//import { addAdress } from "../../services/addAdress";
 
 const EditAddressForm = () => {
   const [address, setAddress] = useState({});
@@ -15,26 +14,6 @@ const EditAddressForm = () => {
     city: "",
     state: "",
   });
-  const body = {
-    street: form.publicPlace,
-    number: form.number,
-    neighbourhood: form.district,
-    city: form.city,
-    state: form.state,
-    complement: form.complement,
-  };
-  /* useEffect(() => {
-    (async () => {
-      const res = await addAdress(body);
-      if (res.status) {
-        console.log(res.status);
-      } else {
-        console.log(res.message);
-      }
-    })();
-  }, []);
-  console.log(address.city);
-  console.log(addAdress);*/
 
   useEffect(() => {
     (async () => {
