@@ -104,6 +104,11 @@ export const OrdersHistoryContainer = styled.div`
     margin-top: 20px;
     border-bottom: 1px solid black;
   }
+
+  & > span {
+    margin-top: 2em;
+    margin-left: 3em;
+  }
 `;
 
 export const FooterContainer = styled.div`
