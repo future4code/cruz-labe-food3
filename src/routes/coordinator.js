@@ -34,6 +34,10 @@ export const goToEditProfilePage = (history) => {
   history.push("/editProfile");
 };
 
+export const goToRestaurant = (history, idRest) => {
+  history.push(`/restaurant/${idRest}`);
+};
+
 export const goToLastPage = (history) => {
   history.goBack();
 };
