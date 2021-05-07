@@ -11,7 +11,7 @@
     <li>Integração da API LabeX</li>
 </ul>
 
-## Link do surge e login admin
+## Link do surge
 
 https://
 
