@@ -3,7 +3,7 @@ import { TextField } from "@material-ui/core";
 import { SaveButton } from "./styled";
 import useForm from "../../hooks/useForm";
 import { getFullAdress } from "../../services/getFullAdress";
-import { addAdress } from "../../services/addAdress";
+//import { addAdress } from "../../services/addAdress";
 
 const EditAddressForm = () => {
   const [address, setAddress] = useState({});
@@ -23,7 +23,7 @@ const EditAddressForm = () => {
     state: form.state,
     complement: form.complement,
   };
-  useEffect(() => {
+  /* useEffect(() => {
     (async () => {
       const res = await addAdress(body);
       if (res.status) {
@@ -34,6 +34,7 @@ const EditAddressForm = () => {
     })();
   }, []);
   console.log(address.city);
+  console.log(addAdress);*/
 
   useEffect(() => {
     (async () => {
