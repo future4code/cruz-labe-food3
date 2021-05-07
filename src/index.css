@@ -25,4 +25,5 @@ code {
   background-position: center;
   width: 100vw;
   height: 100vh;
+  animation: pulse 0.7s infinite;
 }
