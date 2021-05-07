@@ -14,7 +14,7 @@ import GlobalContext from "../../global/globalContext";
 import ModalQuantity from "./ModalQuantity";
 
 const Card = ({ products }) => {
-  const [qtd, handleQtd] = useState(0);
+  const [qtd, handleQtd] = useState(1);
   const { cart } = useContext(GlobalContext);
 
   const onChangeSelected = (e) => {
@@ -46,7 +46,7 @@ const Card = ({ products }) => {
             <img src={item.photoUrl} />
           </Photo>
           <Align>
-            <Name>{item.name}</Name> <Quantity>{qtd}</Quantity>
+            <Name>{item.name}</Name>{itemCart && <Quantity>{itemCart.quantity}</Quantity> }
 
             <Description>{item.description}</Description>
             <Price>R${item.price.toFixed(2).replace(".", ",")}</Price>

@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
   height: 170px;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
   font-family: "Roboto", sans-serif;
