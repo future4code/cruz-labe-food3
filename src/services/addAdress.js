@@ -4,7 +4,7 @@ import { headerApi } from "./config/headerApi";
 
 export const addAdress = async (body) => {
   try {
-    const response = axios.put(`${baseUrl}/address`, body, headerApi());
+    const response = await axios.put(`${baseUrl}/address`, body, headerApi());
     const { token } = response.data;
     const { hasAddress } = response.data.user;
 
@@ -14,9 +14,7 @@ export const addAdress = async (body) => {
       status: true,
     };
   } catch (error) {
-    console.log(error);
     const { message } = error.response.data;
-
     return {
       message,
       status: false,
