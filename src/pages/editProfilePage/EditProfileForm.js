@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { TextField, makeStyles } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { SaveButton } from "./styled";
@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { updateProfile } from "../../services/updateProfile";
 import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import { getProfile } from "../../services/getProfile";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -18,12 +19,9 @@ const useStyles = makeStyles((theme) => ({
 const EditProfileForm = () => {
   const classes = useStyles();
   const history = useHistory();
+  const [data, setData] = useState({});
 
-  const [form, onChange] = useForm({
-    name: "",
-    email: "",
-    cpf: "",
-  });
+  console.log("Este é o estado name:", data.name);
 
   const onSubmitForm = async () => {
     window.event.preventDefault();
@@ -31,6 +29,23 @@ const EditProfileForm = () => {
     alert("Perfil atualizado com sucesso! :)");
     goToProfile(history);
   };
+
+  const [form, onChange] = useForm({
+    name: data.name,
+    email: data.email,
+    cpf: data.cpf,
+  });
+
+  useEffect(() => {
+    (async () => {
+      const result = await getProfile();
+      result.status && setData(result.user);
+      // console.log("Este é o result.user:", result.user);
+      // console.log("Este é o result.user.name:", result.user.name);
+    })();
+  }, []);
+
+  console.log("Este é o form.name impresso:", form.name);
 
   return (
     <div>
@@ -48,6 +63,7 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
+
         <TextField
           name={"email"}
           value={form.email}
@@ -61,6 +77,7 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
+
         <TextField
           name={"cpf"}
           value={form.cpf}
@@ -74,7 +91,6 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
-
         <SaveButton type={"submit"}>Salvar</SaveButton>
       </form>
     </div>

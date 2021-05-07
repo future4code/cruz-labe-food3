@@ -6,7 +6,7 @@ const CardOrder = (props) => {
     <CardContainer>
       <p>{props.restaurantName}</p>
       <p>{props.createdAt}</p>
-      <p>SUBTOTAL R$:{props.totalPrice}</p>
+      <p>SUBTOTAL R${props.totalPrice}</p>
     </CardContainer>
   );
 };
