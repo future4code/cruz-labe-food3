@@ -27,7 +27,7 @@ export const goToSearch = (history) => {
 };
 
 export const goToEditAddressPage = (history) => {
-  history.push("/editAddress");
+  history.push("/editAddressPage");
 };
 
 export const goToEditProfilePage = (history) => {
