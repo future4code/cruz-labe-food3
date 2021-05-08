@@ -10,4 +10,4 @@ setTimeout(() => {
     </React.StrictMode>,
     document.getElementById("root")
   );
-}, 2000);
+}, 8000000);
