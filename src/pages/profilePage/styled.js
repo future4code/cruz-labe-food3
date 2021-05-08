@@ -64,10 +64,10 @@ export const AddressContainer = styled.div`
     & > button {
       border: none;
       margin-right: 5px;
+      background-color: transparent;
       & > img {
         width: 24px;
         height: 24px;
-        background-color: transparent;
       }
     }
   }
