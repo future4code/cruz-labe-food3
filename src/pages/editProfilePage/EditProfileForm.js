@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, makeStyles } from "@material-ui/core";
+import { TextField, makeStyles, CircularProgress } from "@material-ui/core";
 import { SaveButton } from "./styled";
 import clsx from "clsx";
 import { updateProfile } from "../../services/updateProfile";
@@ -21,9 +21,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const EditProfileForm = () => {
+  const history = useHistory();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
@@ -36,7 +38,7 @@ const EditProfileForm = () => {
       cpf,
     };
 
-    await updateProfile(body);
+    await updateProfile(body, setIsLoading);
     alert("Perfil atualizado com sucesso! :)");
     goToProfile(history);
   };
@@ -115,7 +117,14 @@ const EditProfileForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
-        <SaveButton type={"submit"}>Salvar</SaveButton>
+        <SaveButton type={"submit"}>
+          {" "}
+          {isLoading ? (
+            <CircularProgress color={"inherit"} size={24} />
+          ) : (
+            <>Salvar</>
+          )}
+        </SaveButton>
       </form>
     </div>
   );
