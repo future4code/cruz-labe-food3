@@ -11,29 +11,25 @@ const CardSearch = ({ restaurants }) => {
   const history = useHistory();
 
   return (
-    <div>
-      {restaurants.length ? (
-        restaurants.map((data) => (
-          <CardFood
-            key={data.id}
-            onClick={() => goToRestaurant(history, data.id)}
-          >
-            <img src={data.logoUrl} alt="" />
-            <div>
-              <p>{data.name}</p>
-              <span>
-                <p>
-                  {Math.floor(data.deliveryTime / 2)} - {data.deliveryTime} min
-                </p>
-                <p>Frete R${data.shipping},00</p>
-              </span>
-            </div>
-          </CardFood>
-        ))
-      ) : (
-        <Loading />
-      )}
-    </div>
+    <>
+      {restaurants.map((data) => (
+        <CardFood
+          key={data.id}
+          onClick={() => goToRestaurant(history, data.id)}
+        >
+          <img src={data.logoUrl} alt="" />
+          <div>
+            <p>{data.name}</p>
+            <span>
+              <p>
+                {Math.floor(data.deliveryTime / 2)} - {data.deliveryTime} min
+              </p>
+              <p>Frete R${data.shipping},00</p>
+            </span>
+          </div>
+        </CardFood>
+      ))}
+    </>
   );
 };
 
