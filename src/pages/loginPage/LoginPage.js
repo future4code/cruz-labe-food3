@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-import logo from "../../images/logo-future-eats-invert.png";
+import logo from "../../assets/images/logo-future-eats-invert.png";
 import { MainContainer, Logo, TopText, SignUpButton } from "./styled";
 import { goToSignUpPage } from "../../routes/coordinator";
 import { useHistory } from "react-router";

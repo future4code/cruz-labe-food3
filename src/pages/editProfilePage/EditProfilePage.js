@@ -1,11 +1,13 @@
 import React from "react";
 import EditProfileForm from "./EditProfileForm";
 import { MainContainer, TopText, Header, ArrowContainer } from "./styled";
-import Arrow from "../../images/arrow.svg";
+import Arrow from "../../assets/images/arrow.svg";
 import { useHistory } from "react-router";
 import { goToLastPage } from "../../routes/coordinator";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const EditProfilePage = () => {
+  useProtectedPage();
   const history = useHistory();
 
   return (

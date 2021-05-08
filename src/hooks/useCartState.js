@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const useCartState = () => {
   const [cartState, setCartState] = useState([]);
-  const [infoRest, setInfoRest] = useState({})
+  const [infoRest, setInfoRest] = useState({});
 
   const addItemCart = (item) => {
     setCartState([...cartState, item]);
@@ -13,7 +13,17 @@ export const useCartState = () => {
     setCartState(newArray);
   };
 
-  
+  const clearCart = () => {
+    setCartState([]);
+    setInfoRest({});
+  };
 
-  return [cartState, addItemCart, removeItemCart, infoRest, setInfoRest];
+  return [
+    cartState,
+    addItemCart,
+    removeItemCart,
+    infoRest,
+    setInfoRest,
+    clearCart,
+  ];
 };

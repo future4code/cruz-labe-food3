@@ -1,8 +1,7 @@
-import react from "react";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-height:80px;
+  height: 80px;
 `;
 
 export const ContainerArea = styled.div`
@@ -11,7 +10,16 @@ overflow-y: auto;
 `
 
 export const MainContainer = styled.div`
-  width: 92vw;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 92vh;
+  overflow: hidden;
+  overflow-y: auto;
+`;
+
+export const Cards = styled.div`
+width: 92vw;
   margin: 4vw;
   padding: 0;
   display: flex;
@@ -21,8 +29,7 @@ export const MainContainer = styled.div`
   font-family: "Roboto", sans-serif;
   letter-spacing: -0.39px;
   font-size: 16px;
-  line-height: 30px;
-`;
+  line-height: 30px;`
 
 export const Cards = styled.div`
 width: 92vw;

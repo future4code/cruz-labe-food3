@@ -14,7 +14,6 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import { signUp } from "../../services/signup";
-import { goToAddAddressPage } from "../../routes/coordinator";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
