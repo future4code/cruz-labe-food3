@@ -6,6 +6,11 @@ import { updateProfile } from "../../services/updateProfile";
 import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import { getProfile } from "../../services/getProfile";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+import { useToast } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -17,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 const EditProfileForm = () => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
   const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -42,8 +48,16 @@ const EditProfileForm = () => {
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
   };
+
   const onChangeCpf = (e) => {
     setCpf(e.target.value);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
   };
 
   useEffect(() => {

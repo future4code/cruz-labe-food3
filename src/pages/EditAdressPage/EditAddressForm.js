@@ -67,7 +67,7 @@ const EditAddressForm = () => {
     };
 
     await addAddress(body);
-    alert("Perfil atualizado com sucesso! :)");
+    alert("Endereço atualizado com sucesso! :)");
     goToProfile(history);
   };
 
@@ -102,14 +102,13 @@ const EditAddressForm = () => {
 
         <TextField
           name={"complement"}
-          label={"complemento"}
+          label={"Complemento"}
           placeholder={"Apto. / Bloco"}
           margin={"normal"}
           variant={"outlined"}
           type={"text"}
           value={complement}
           onChange={onChangeComplement}
-          required
           fullWidth
         />
 

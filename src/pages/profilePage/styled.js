@@ -11,7 +11,6 @@ export const CardContainer = styled.div`
   justify-content: space-evenly;
 
   & > P {
-    /* margin-top: 8px; */
     margin-left: 16px;
   }
 
@@ -49,7 +48,7 @@ export const AddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 10vh;
+  height: 11vh;
   background-color: #eeeeee;
   justify-content: center;
   margin-top: 20px;
@@ -68,7 +67,7 @@ export const AddressContainer = styled.div`
     align-self: flex-end;
     position: absolute;
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 14px;
     & > img {
       width: 24px;
       height: 24px;
