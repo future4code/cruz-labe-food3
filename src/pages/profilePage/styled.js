@@ -48,30 +48,31 @@ export const AddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 11vh;
+  height: 13vh;
   background-color: #eeeeee;
   justify-content: center;
   margin-top: 20px;
 
-  & > p {
+  div:nth-child(1) {
+    display: flex;
+    flex-direction: row;
     margin-top: 5px;
-  }
-
-  & > p:nth-child(1) {
+    margin-right: 10px;
     color: #b8b8b8;
-  }
+    justify-content: space-between;
 
-  & > button {
-    background-color: transparent;
-    border: none;
-    align-self: flex-end;
-    position: absolute;
-    margin-top: 5px;
-    margin-right: 14px;
-    & > img {
-      width: 24px;
-      height: 24px;
+    & > button {
+      border: none;
+      margin-right: 5px;
+      & > img {
+        width: 24px;
+        height: 24px;
+        background-color: transparent;
+      }
     }
+  }
+  p:nth-child(2) {
+    margin-right: 25px;
   }
 `;
 
