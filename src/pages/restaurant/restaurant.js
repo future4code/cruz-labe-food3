@@ -6,6 +6,7 @@ import Footer from "../../components/footer/Footer";
 import {
   CardContainer,
   MainContainer,
+  Cards,
   Photo,
   Name,
   Type,
@@ -15,9 +16,10 @@ import {
   ContainerArea,
 } from "./styled";
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
-import GlobalContext from "../../global/globalContext";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const Restaurant = () => {
+  useProtectedPage();
   const [restaurantDetail, setRestaurantDetail] = useState(null);
   const { idRest } = useParams();
   const history = useHistory();
@@ -48,38 +50,36 @@ const Restaurant = () => {
 
   return (
     <>
-    <ContainerArea>
-      <CardContainer>
-        {" "}
-        <Header name={"Restaurante"} />
-      </CardContainer>
-      {restaurantDetail && (
-        <div>
-          {" "}
-          <MainContainer>
-            <Photo>
-              <img src={restaurantDetail.logoUrl} />
-            </Photo>
-            <Name> {restaurantDetail.name} </Name>
-            <Type>{restaurantDetail.category} </Type>
-            <Time> {restaurantDetail.deliveryTime} min </Time>
-            <Shipping>
-              R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
-            </Shipping>
-            <Adress> {restaurantDetail.address} </Adress>
-          </MainContainer>{" "}
-        </div>
-      )}
-
-      {restaurantDetail && (
-        <Card
-          infoRestaurant={infoRestaurant}
-          products={restaurantDetail.products}
-        />
-      )}
-      
-    </ContainerArea>
-    <Footer restaurant />
+      <ContainerArea>
+        <CardContainer>
+          <Header name={"Restaurante"} />
+        </CardContainer>
+        <MainContainer>
+          {restaurantDetail && (
+            <div>
+              <Cards>
+                <Photo>
+                  <img src={restaurantDetail.logoUrl} />
+                </Photo>
+                <Name> {restaurantDetail.name} </Name>
+                <Type>{restaurantDetail.category} </Type>
+                <Time> {restaurantDetail.deliveryTime} min </Time>
+                <Shipping>
+                  R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
+                </Shipping>
+                <Adress> {restaurantDetail.address} </Adress>
+              </Cards>
+            </div>
+          )}
+          {restaurantDetail && (
+            <Card
+              infoRestaurant={infoRestaurant}
+              products={restaurantDetail.products}
+            />
+          )}
+        </MainContainer>
+      </ContainerArea>
+      <Footer restaurant />
     </>
   );
 };

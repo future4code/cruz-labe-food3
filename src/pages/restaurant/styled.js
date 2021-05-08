@@ -24,6 +24,19 @@ export const MainContainer = styled.div`
   line-height: 30px;
 `;
 
+export const Cards = styled.div`
+width: 92vw;
+  margin: 4vw;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.39px;
+  font-size: 16px;
+  line-height: 30px;`
+
 export const Photo = styled.div`
   width: 100%;
   img {
