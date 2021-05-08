@@ -26,9 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginForm = () => {
-
   const toast = useToast();
-  const classes = useStyles();
 
   const history = useHistory();
   const classes = useStyles();

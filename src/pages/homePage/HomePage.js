@@ -63,6 +63,7 @@ const HomePage = () => {
         </InputArea>
 
         <TypesFoods>
+          <p onClick={() => filtredRestaurants("")}>Todos</p>
           {categories?.map((type) => (
             <p key={type} onClick={() => filtredRestaurants(type)}>
               {type}
