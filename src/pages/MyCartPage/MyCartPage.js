@@ -1,4 +1,8 @@
-import { FormControlLabel, RadioGroup } from "@material-ui/core";
+import {
+  FormControlLabel,
+  RadioGroup,
+  CircularProgress,
+} from "@material-ui/core";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
@@ -38,6 +42,7 @@ export default function MyCartPage() {
   const [form, handleInputChange] = useForm(initialValue);
   const [totalCart, setTotalCart] = useState(0);
   const { cart } = useContext(GlobalContext);
+  const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -79,7 +84,7 @@ export default function MyCartPage() {
     const hasOrder = await getActiveOrder();
 
     if (!hasOrder.order) {
-      const result = await placeOrder(cart.infoRest.id, body);
+      const result = await placeOrder(cart.infoRest.id, body, setIsLoading);
 
       if (result.status) {
         goToHomePage(history);
@@ -150,7 +155,11 @@ export default function MyCartPage() {
               type="submit"
               disabled={cart.cartState.length === 0 ? true : false}
             >
-              Confirmar
+              {isLoading ? (
+                <CircularProgress color={"inherit"} size={24} />
+              ) : (
+                <>Confirmar</>
+              )}
             </ConfirmButton>
           </ContainerPayment>
         </ContainerScroll>

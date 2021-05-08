@@ -14,6 +14,7 @@ import GlobalContext from "../../global/globalContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import OrderInProgress from "../../components/orderInProgress/OrderInProgress";
 import { getActiveOrder } from "../../services/getActiveOrder";
+import Loading from "../../components/loading/Loading";
 
 const HomePage = () => {
   useProtectedPage();
@@ -68,10 +69,8 @@ const HomePage = () => {
             </p>
           ))}
         </TypesFoods>
-
-        <CardSearch
-          restaurants={filtered.length > 0 ? filtered : restaurants}
-        />
+        {restaurants.length === 0 && <Loading />}
+        <CardSearch restaurants={filtered.length ? filtered : restaurants} />
       </MainContainer>
       {orders !== null && orders.length !== 0 && orders !== undefined ? (
         <OrderInProgress />

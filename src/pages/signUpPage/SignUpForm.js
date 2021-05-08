@@ -9,6 +9,7 @@ import {
   InputLabel,
   FormControl,
   OutlinedInput,
+  CircularProgress,
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import clsx from "clsx";
@@ -24,8 +25,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignUpForm = () => {
-  const classes = useStyles();
   const history = useHistory();
+  const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(false);
   const [form, onChange, clear] = useForm({
     name: "",
     email: "",
@@ -35,8 +37,6 @@ const SignUpForm = () => {
 
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const [isValidCpf, setIsValidCpf] = useState(false);
-  // const [cpf, setCpf] = useState("");
 
   const [values, setValues] = useState({
     password: "",
@@ -45,15 +45,6 @@ const SignUpForm = () => {
     showConfirmPassword: false,
     error: false,
   });
-
-  // const onChangeValidCpf = (e) => {
-  //   if (cpf.length !== 10) {
-  //     setIsValidCpf(true);
-  //   } else {
-  //     setIsValidCpf(false);
-  //   }
-  //   setCpf(e.target.value);
-  // };
 
   const onChangeConfirmPassword = (e) => {
     if (form.password !== e.target.value) {
@@ -69,7 +60,7 @@ const SignUpForm = () => {
 
     if (form.password === confirmPassword) {
       setIsValidPassword(false);
-      const result = await signUp(form);
+      const result = await signUp(form, setIsLoading);
       if (result.status) {
         localStorage.setItem("token", result.token);
         setConfirmPassword("");
@@ -222,7 +213,13 @@ const SignUpForm = () => {
           </FormHelperText>
         </FormControl>
 
-        <SignUpButton type={"submit"}>Criar</SignUpButton>
+        <SignUpButton type={"submit"}>
+          {isLoading ? (
+            <CircularProgress color={"inherit"} size={24} />
+          ) : (
+            <>Criar</>
+          )}
+        </SignUpButton>
       </form>
     </div>
   );

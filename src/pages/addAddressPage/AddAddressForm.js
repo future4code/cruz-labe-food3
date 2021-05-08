@@ -1,5 +1,5 @@
-import React from "react";
-import { TextField, makeStyles } from "@material-ui/core";
+import React, { useState } from "react";
+import { TextField, makeStyles, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { SaveButton } from "./styled";
 import clsx from "clsx";
@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddAddressForm = () => {
-  const classes = useStyles();
   const history = useHistory();
+  const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [form, onChange] = useForm({
     street: "",
@@ -29,7 +30,7 @@ const AddAddressForm = () => {
 
   const onSubmitForm = async () => {
     window.event.preventDefault();
-    const result = await addAddress(form);
+    const result = await addAddress(form, setIsLoading);
     localStorage.setItem("token", result.token);
     history.push("/");
   };
@@ -119,7 +120,13 @@ const AddAddressForm = () => {
           fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
-        <SaveButton type={"submit"}>Salvar</SaveButton>
+        <SaveButton type={"submit"}>
+          {isLoading ? (
+            <CircularProgress color={"inherit"} size={24} />
+          ) : (
+            <>Salvar</>
+          )}
+        </SaveButton>
       </form>
     </div>
   );

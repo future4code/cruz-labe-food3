@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField } from "@material-ui/core";
+import { TextField, CircularProgress } from "@material-ui/core";
 import { SaveButton } from "./styled";
 import { getFullAdress } from "../../services/getFullAdress";
 import { addAddress } from "../../services/addAddress";
@@ -7,14 +7,15 @@ import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 
 const EditAddressForm = () => {
+  const history = useHistory();
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
   const [complement, setComplement] = useState("");
   const [neighbourhood, setNeighbourhood] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const history = useHistory();
   useEffect(() => {
     (async () => {
       const res = await getFullAdress();
@@ -66,7 +67,7 @@ const EditAddressForm = () => {
       state,
     };
 
-    await addAddress(body);
+    await addAddress(body, setIsLoading);
     alert("Endereço atualizado com sucesso! :)");
     goToProfile(history);
   };
@@ -150,7 +151,13 @@ const EditAddressForm = () => {
           required
           fullWidth
         />
-        <SaveButton type={"submit"}>Salvar</SaveButton>
+        <SaveButton type={"submit"}>
+          {isLoading ? (
+            <CircularProgress color={"inherit"} size={24} />
+          ) : (
+            <>Salvar</>
+          )}
+        </SaveButton>
       </form>
     </div>
   );
