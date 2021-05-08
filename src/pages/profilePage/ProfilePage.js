@@ -100,12 +100,13 @@ const ProfilePage = () => {
           <Email>{profile.email}</Email>
           <p>{profile.cpf}</p>
           <AddressContainer>
-            <p>Endereço cadastrado</p>
+            <div>
+              <p>Endereço cadastrado</p>
+              <button onClick={() => goToEditAddressPage(history)}>
+                <img src={EditIcon} alt="" />
+              </button>
+            </div>
             <p>{profile.address}</p>
-
-            <button onClick={() => goToEditAddressPage(history)}>
-              <img src={EditIcon} alt="" />
-            </button>
           </AddressContainer>
         </DataContainer>
       </MainContainer>
