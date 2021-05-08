@@ -6,6 +6,7 @@ import {
   OutlinedInput,
   IconButton,
   FormControl,
+  CircularProgress,
 } from "@material-ui/core";
 import { LoginButton } from "./styled";
 import { VisibilityOff, Visibility } from "@material-ui/icons";
@@ -25,9 +26,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginForm = () => {
+
   const toast = useToast();
   const classes = useStyles();
+
   const history = useHistory();
+  const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [form, onChange] = useForm({
     email: "",
@@ -36,7 +41,7 @@ const LoginForm = () => {
 
   const onSubmitForm = async () => {
     window.event.preventDefault();
-    const result = await login(form);
+    const result = await login(form, setIsLoading);
     if (result.status) {
       localStorage.setItem("token", result.token);
 
@@ -126,7 +131,13 @@ const LoginForm = () => {
           />
         </FormControl>
 
-        <LoginButton type={"submit"}>Entrar</LoginButton>
+        <LoginButton type={"submit"}>
+          {isLoading ? (
+            <CircularProgress color={"inherit"} size={24} />
+          ) : (
+            <>Entrar</>
+          )}
+        </LoginButton>
       </form>
     </div>
   );

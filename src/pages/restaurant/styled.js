@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  height: 80px;
+  height: 40px;
 `;
 
 export const ContainerArea = styled.div`
@@ -34,8 +34,11 @@ width: 92vw;
 export const Photo = styled.div`
   width: 100%;
   img {
-    border-radius: 8px 8px 0 0;
-    max-width: 100%;
+
+  width: 100%;
+    border-radius: 8px 8px 0 0px;
+    object-fit: cover;
+    height: 120px;
   }
 `;
 

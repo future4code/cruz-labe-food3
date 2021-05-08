@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { CardFood } from "./style";
 import { goToRestaurant } from "../../routes/coordinator";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import Loading from "../../components/loading/Loading";
 
 const CardSearch = ({ restaurants }) => {
   useProtectedPage();
