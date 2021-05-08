@@ -37,9 +37,24 @@ https://the-best-future-eats.surge.sh
 - [x] Get Restaurant Detail;
 - [x] Place Order;
 - [x] Get Active Order;
-- [x] Orders History;
+- [x] Orders History.
+
+### Extras
+- [x] Spinners;
+- [x] Animação na tela inicial.
 
 ## Imagens
+![telak](https://user-images.githubusercontent.com/63327969/117550528-40a19600-b017-11eb-8a6b-1532c2074ecd.png)
+![telaa](https://user-images.githubusercontent.com/63327969/117550451-e1438600-b016-11eb-8d3b-f11bbdc6889c.png)
+![telab](https://user-images.githubusercontent.com/63327969/117550482-09cb8000-b017-11eb-8bc9-072248105105.png)
+![telac](https://user-images.githubusercontent.com/63327969/117550493-12bc5180-b017-11eb-8039-86a4a97de212.png)
+![telad](https://user-images.githubusercontent.com/63327969/117550496-15b74200-b017-11eb-8455-542e7c9559d8.png)
+![telaf](https://user-images.githubusercontent.com/63327969/117550510-2bc50280-b017-11eb-892f-c0ecfcdbc0c6.png)
+![telag](https://user-images.githubusercontent.com/63327969/117550519-34b5d400-b017-11eb-93c5-3ad2f436ed37.png)
+![telah](https://user-images.githubusercontent.com/63327969/117550522-38495b00-b017-11eb-936b-cbeb86666f02.png)
+![telal](https://user-images.githubusercontent.com/63327969/117550523-3b444b80-b017-11eb-9aea-a8c705a882f5.png)
+![telai](https://user-images.githubusercontent.com/63327969/117550533-48613a80-b017-11eb-9ffc-aa67c3c9ec05.png)
+![telaj](https://user-images.githubusercontent.com/63327969/117550535-49926780-b017-11eb-865b-f69b14e041bd.png)
 
 ## 🛠 Tecnologias
 
