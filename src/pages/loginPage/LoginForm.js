@@ -27,7 +27,7 @@ const LoginForm = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  const [form, onChange, clear] = useForm({
+  const [form, onChange] = useForm({
     email: "",
     password: "",
   });

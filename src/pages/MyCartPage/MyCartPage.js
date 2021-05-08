@@ -26,12 +26,14 @@ import {
   ContainerHeader,
   ContainerScroll,
 } from "./styled";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const initialValue = {
   paymentMethod: "",
 };
 
 export default function MyCartPage() {
+  useProtectedPage();
   const [userAddress, setUserAddress] = useState("");
   const [form, handleInputChange] = useForm(initialValue);
   const [totalCart, setTotalCart] = useState(0);
@@ -81,9 +83,12 @@ export default function MyCartPage() {
 
       if (result.status) {
         goToHomePage(history);
+        cart.clearCart();
       } else {
         console.log(result.message);
       }
+    } else {
+      alert("Você tem um pedido em aberto. Aguarde ele ser finalizado");
     }
   };
 

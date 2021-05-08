@@ -1,9 +1,11 @@
 import React from "react";
 import EditAddressForm from "./EditAddressForm";
-import { MainContainer, Logo, TopText } from "./styled";
+import { MainContainer, TopText } from "./styled";
 import Header from "../../components/header/Header";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const EditAddressPage = () => {
+  useProtectedPage();
   return (
     <>
       <Header name={"Endereço"} />

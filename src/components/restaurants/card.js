@@ -7,6 +7,7 @@ import {
   Quantity,
   Description,
   Price,
+  AlignButton,
   Remove,
   H3,
 } from "./styled";
@@ -52,7 +53,7 @@ const Card = ({ products, inCart, infoRestaurant }) => {
         {!inCart && <H3>{item.category} </H3>}
         <MainContainer>
           <Photo>
-            <img src={item.photoUrl} />
+            <img src={item.photoUrl} alt="" />
           </Photo>
           <Align>
             <Name>{item.name}</Name>
@@ -60,7 +61,8 @@ const Card = ({ products, inCart, infoRestaurant }) => {
 
             <Description>{item.description}</Description>
             <Price>R${item.price.toFixed(2).replace(".", ",")}</Price>
-
+           
+            <AlignButton>
             {itemCart && (
               <Remove onClick={() => removeCart(item.id)}>Remover</Remove>
             )}
@@ -72,7 +74,7 @@ const Card = ({ products, inCart, infoRestaurant }) => {
                 onChangeSelected={onChangeSelected}
               />
             )}
-          </Align>
+         </AlignButton> </Align>
         </MainContainer>
       </div>
     );

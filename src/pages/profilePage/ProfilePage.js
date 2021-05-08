@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import EditIcon from "../../images/edit-icon.png";
+import EditIcon from "../../assets/images/edit-icon.png";
 import CardOrder from "./CardOrder";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -15,11 +15,16 @@ import {
   Email,
 } from "./styled";
 import { goToEditProfilePage } from "../../routes/coordinator";
+import { goToEditAddressPage } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import useProtectedPage from "../../hooks/useProtectedPage";
+import { getActiveOrder } from "../../services/getActiveOrder";
 
 const ProfilePage = () => {
+  useProtectedPage();
   const [orders, setOrders] = useState([]);
   const [profile, setProfile] = useState({});
+  const [hasOrder, setHasOrder] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
@@ -45,6 +50,18 @@ const ProfilePage = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      const res = await getActiveOrder();
+
+      if (res.status) {
+        setHasOrder(res.order);
+      } else {
+        console.log(res.message);
+      }
+    })();
+  }, []);
+
   const formatter = Intl.DateTimeFormat("pt-BR", {
     dateStyle: "long",
   });
@@ -55,6 +72,7 @@ const ProfilePage = () => {
       orders.map((item) => {
         return (
           <CardOrder
+            key={item.id}
             totalPrice={item.totalPrice.toFixed(2)}
             restaurantName={item.restaurantName}
             createdAt={formatter.format(item.createdAt)}
@@ -74,6 +92,7 @@ const ProfilePage = () => {
             <button>
               <img
                 src={EditIcon}
+                alt=""
                 onClick={() => goToEditProfilePage(history)}
               />
             </button>
@@ -83,15 +102,20 @@ const ProfilePage = () => {
           <AddressContainer>
             <p>Endereço cadastrado</p>
             <p>{profile.address}</p>
-            <button>
-              <img src={EditIcon} />
+
+            <button onClick={() => goToEditAddressPage(history)}>
+              <img src={EditIcon} alt=""/>
             </button>
           </AddressContainer>
         </DataContainer>
       </MainContainer>
       <OrdersHistoryContainer>
         <p>Histórico de Pedidos</p>
-        {getListOrders()}
+        {orders.length === 0 ? (
+          <span>Você não realizou nenhum pedido</span>
+        ) : (
+          getListOrders()
+        )}
       </OrdersHistoryContainer>
       <FooterContainer>
         <Footer profile />
