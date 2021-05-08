@@ -31,7 +31,7 @@ import {
   ContainerScroll,
 } from "./styled";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import { useToast } from "@chakra-ui/react";
+import { createStandaloneToast } from "@chakra-ui/react";
 const initialValue = {
   paymentMethod: "",
 };
@@ -44,7 +44,7 @@ export default function MyCartPage() {
   const { cart } = useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
-  const toast = useToast();
+  const toast = createStandaloneToast();
 
   useEffect(() => {
     const totalValue = cart.cartState.reduce((acc, curr) => {

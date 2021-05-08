@@ -35,9 +35,7 @@ const Router = () => {
         </Route>
 
         <Route exact path={"/cart"}>
-          <ChakraProvider>
-            <MyCartPage />
-          </ChakraProvider>
+          <MyCartPage />
         </Route>
 
         <Route exact path={"/profile"}>
