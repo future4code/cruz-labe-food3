@@ -18,12 +18,42 @@ code {
     monospace;
 }
 
-.initial-screen {
+.initial-screen-container {
   background-color: #000000;
+  overflow: hidden;
+}
+
+.initial-screen {
   background-image: url(../src/assets/images/logo-future-eats.png);
   background-repeat: no-repeat;
   background-position: center;
   width: 100vw;
   height: 100vh;
   animation: pulse 0.7s infinite;
+  margin: 0 auto;
+  animation-direction: alternate;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    -webkit-filter: brightness(100%);
+  }
+  100% {
+    -webkit-transform: scale(1.1);
+    -webkit-filter: brightness(200%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(100%);
+  }
+  100% {
+    transform: scale(1.1);
+    filter: brightness(200%);
+  }
 }
