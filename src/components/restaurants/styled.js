@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
 width: 90vw;
 margin: 5vw;
-height: 170px;
+height: 173px;
 padding: 0;
 display: flex;
 flex-direction: row;
@@ -54,7 +54,7 @@ export const Quantity = styled.div`
   color: #5cb646;
   border: 1px solid #5cb646;
   border-top-right-radius: 8px;
-  margin:-10px -9.5px 0 0;
+  margin:-7px -9.5px 0 0;
 `;
 
 export const Description = styled.div`
