@@ -14,6 +14,7 @@ import GlobalContext from "../../global/globalContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import OrderInProgress from "../../components/orderInProgress/OrderInProgress";
 import { getActiveOrder } from "../../services/getActiveOrder";
+import Loading from "../../components/loading/Loading";
 
 const HomePage = () => {
   useProtectedPage();
