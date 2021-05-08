@@ -13,6 +13,7 @@ import {
   Time,
   Shipping,
   Adress,
+  ContainerArea,
 } from "./styled";
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -48,11 +49,20 @@ const Restaurant = () => {
   }, []);
 
   return (
-    <div>
+    <>
+    <ContainerArea>
       <CardContainer>
         <Header name={"Restaurante"} />
       </CardContainer>
 
+
+      {restaurantDetail && (
+        <Card
+          infoRestaurant={infoRestaurant}
+          products={restaurantDetail.products}
+        />
+      )}
+      
       <MainContainer>
         {restaurantDetail && (
           <div>
@@ -78,8 +88,9 @@ const Restaurant = () => {
         )}
       </MainContainer>
 
-      <Footer restaurant />
-    </div>
+      </ContainerArea>
+    <Footer restaurant />
+    </>
   );
 };
 

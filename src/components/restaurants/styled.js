@@ -21,13 +21,14 @@ border-radius: 8px;
 `;
 
 export const Photo = styled.div`
-width: 35%;
-img {
-max-width: 100%;
-height: 168px;
-object-fit: cover;
-border-radius: 8px;
-}
+  width: 35%;
+
+  img {
+    max-width: 100%;
+    height: 168px;
+    border-radius: 8px 0 0 8px;
+    object-fit: cover;
+  }
 `;
 
 export const Align = styled.div`
@@ -53,7 +54,7 @@ export const Quantity = styled.div`
   color: #5cb646;
   border: 1px solid #5cb646;
   border-top-right-radius: 8px;
-  margin: -12px -9.5px 0 0;
+  margin:-10px -9.5px 0 0;
 `;
 
 export const Description = styled.div`
@@ -78,21 +79,21 @@ justify-content: flex-end;
 `;
 
 export const Add = styled.button`
-padding: 7px;
-color: #5cb646;
-border: 1px solid #5cb646;
-border-bottom-right-radius: 8px;
-background: none;
-margin-right:-9.5px;
+  padding: 9px 16px;
+  color: #5cb646;
+  border: 1px solid #5cb646;
+  border-radius: 8px 0 8px 0;
+  background: none;
+  margin-right:-9.5px;
 `;
 
 export const Remove = styled.button`
-padding: 7px;
-color: red;
-border: 1px solid red;
-border-bottom-right-radius: 8px;
-background: none;
-margin-right:-9.5px;
+  padding: 9px 16px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 8px 0 8px 0;
+  background: none;
+  margin-right:-9.5px;
 `;
 
 export const H3 = styled.h3`
