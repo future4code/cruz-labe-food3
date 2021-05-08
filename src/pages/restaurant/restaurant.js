@@ -12,6 +12,7 @@ import {
   Time,
   Shipping,
   Adress,
+  ContainerArea,
 } from "./styled";
 import { getRestaurantDetail } from "../../services/getRestaurantDetail";
 import GlobalContext from "../../global/globalContext";
@@ -46,7 +47,8 @@ const Restaurant = () => {
   }, []);
 
   return (
-    <div>
+    <>
+    <ContainerArea>
       <CardContainer>
         {" "}
         <Header name={"Restaurante"} />
@@ -75,9 +77,10 @@ const Restaurant = () => {
           products={restaurantDetail.products}
         />
       )}
-
-      <Footer restaurant />
-    </div>
+      
+    </ContainerArea>
+    <Footer restaurant />
+    </>
   );
 };
 

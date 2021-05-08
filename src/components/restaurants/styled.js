@@ -23,7 +23,8 @@ export const Photo = styled.div`
 
   img {
     max-width: 100%;
-    height: 170px;
+    height: 168px;
+    border-radius: 8px 0 0 8px;
     object-fit: cover;
   }
 `;
@@ -52,7 +53,7 @@ export const Quantity = styled.div`
   color: #5cb646;
   border: 1px solid #5cb646;
   border-top-right-radius: 8px;
-  margin:-12px -9.5px 0 0;
+  margin:-10px -9.5px 0 0;
 `;
 
 
@@ -71,19 +72,19 @@ export const Price = styled.div`
 margin-top:15px;
 `;
 export const Add = styled.button`
-  padding: 7px;
+  padding: 9px 16px;
   color: #5cb646;
   border: 1px solid #5cb646;
-  border-bottom-right-radius: 8px;
+  border-radius: 8px 0 8px 0;
   background: none;
-margin-right:-9.5px;
+  margin-right:-9.5px;
 `;
 
 export const Remove = styled.button`
-  padding: 7px;
+  padding: 9px 16px;
   color: red;
   border: 1px solid red;
-  border-bottom-right-radius: 8px;
+  border-radius: 8px 0 8px 0;
   background: none;
   margin-right:-9.5px;
 `;

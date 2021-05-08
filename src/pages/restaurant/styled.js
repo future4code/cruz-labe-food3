@@ -5,6 +5,11 @@ export const CardContainer = styled.div`
 height:80px;
 `;
 
+export const ContainerArea = styled.div`
+height: 92vh;
+overflow-y: auto;
+`
+
 export const MainContainer = styled.div`
   width: 92vw;
   margin: 4vw;
@@ -22,6 +27,7 @@ export const MainContainer = styled.div`
 export const Photo = styled.div`
   width: 100%;
   img {
+    border-radius: 8px 8px 0 0;
     max-width: 100%;
   }
 `;
