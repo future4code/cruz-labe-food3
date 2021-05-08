@@ -50,46 +50,36 @@ const Restaurant = () => {
 
   return (
     <>
-    <ContainerArea>
-      <CardContainer>
-        <Header name={"Restaurante"} />
-      </CardContainer>
-
-
-      {restaurantDetail && (
-        <Card
-          infoRestaurant={infoRestaurant}
-          products={restaurantDetail.products}
-        />
-      )}
-      
-      <MainContainer>
-        {restaurantDetail && (
-          <div>
-            <Cards>
-              <Photo>
-                <img src={restaurantDetail.logoUrl} />
-              </Photo>
-              <Name> {restaurantDetail.name} </Name>
-              <Type>{restaurantDetail.category} </Type>
-              <Time> {restaurantDetail.deliveryTime} min </Time>
-              <Shipping>
-                R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
-              </Shipping>
-              <Adress> {restaurantDetail.address} </Adress>
-            </Cards>
-          </div>
-        )}
-        {restaurantDetail && (
-          <Card
-            infoRestaurant={infoRestaurant}
-            products={restaurantDetail.products}
-          />
-        )}
-      </MainContainer>
-
+      <ContainerArea>
+        <CardContainer>
+          <Header name={"Restaurante"} />
+        </CardContainer>
+        <MainContainer>
+          {restaurantDetail && (
+            <div>
+              <Cards>
+                <Photo>
+                  <img src={restaurantDetail.logoUrl} />
+                </Photo>
+                <Name> {restaurantDetail.name} </Name>
+                <Type>{restaurantDetail.category} </Type>
+                <Time> {restaurantDetail.deliveryTime} min </Time>
+                <Shipping>
+                  R${restaurantDetail.shipping.toFixed(2).replace(".", ",")}
+                </Shipping>
+                <Adress> {restaurantDetail.address} </Adress>
+              </Cards>
+            </div>
+          )}
+          {restaurantDetail && (
+            <Card
+              infoRestaurant={infoRestaurant}
+              products={restaurantDetail.products}
+            />
+          )}
+        </MainContainer>
       </ContainerArea>
-    <Footer restaurant />
+      <Footer restaurant />
     </>
   );
 };
