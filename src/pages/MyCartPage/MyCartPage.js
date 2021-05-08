@@ -27,7 +27,7 @@ import {
   ContainerScroll,
 } from "./styled";
 import useProtectedPage from "../../hooks/useProtectedPage";
-
+import { useToast } from "@chakra-ui/react";
 const initialValue = {
   paymentMethod: "",
 };
@@ -39,6 +39,7 @@ export default function MyCartPage() {
   const [totalCart, setTotalCart] = useState(0);
   const { cart } = useContext(GlobalContext);
   const history = useHistory();
+  const toast = useToast();
 
   useEffect(() => {
     const totalValue = cart.cartState.reduce((acc, curr) => {
@@ -88,7 +89,15 @@ export default function MyCartPage() {
         console.log(result.message);
       }
     } else {
-      alert("Você tem um pedido em aberto. Aguarde ele ser finalizado");
+      toast({
+        title: "Existe um pedido ativo",
+        description:
+          "Aguarde o pedido ser finalizado para fazer um novo pedido",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
     }
   };
 

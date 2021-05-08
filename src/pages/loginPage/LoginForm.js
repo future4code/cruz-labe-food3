@@ -14,6 +14,7 @@ import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import { login } from "../../services/login";
 import { goToAddAddressPage, goToHomePage } from "../../routes/coordinator";
+import { useToast } from "@chakra-ui/react";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginForm = () => {
+  const toast = useToast();
   const classes = useStyles();
   const history = useHistory();
 
@@ -41,11 +43,26 @@ const LoginForm = () => {
       if (result.hasAddress) {
         goToHomePage(history);
       } else {
-        alert("Para continuar, cadastre o seu endereço :)");
+        toast({
+          title: "Precisamos de mais informações suas",
+          description: "Cadastre o seu endereço para poder continuar!",
+          status: "warning",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+
         goToAddAddressPage(history);
       }
     } else {
-      alert(result.message);
+      toast({
+        title: "Algo deu errado",
+        description: `${result.message}`,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
     }
   };
 

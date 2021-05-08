@@ -10,6 +10,8 @@ import Restaurants from "../pages/restaurant/restaurant";
 import SearchPage from "../pages/searchPage/SearchPage.js";
 import EditAddressPage from "../pages/EditAdressPage/EditAddressPage.js";
 import EditProfilePage from "../pages/editProfilePage/EditProfilePage";
+import { ChakraProvider } from "@chakra-ui/react";
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -19,7 +21,9 @@ const Router = () => {
         </Route>
 
         <Route exact path={"/login"}>
-          <LoginPage />
+          <ChakraProvider>
+            <LoginPage />
+          </ChakraProvider>
         </Route>
 
         <Route exact path={"/signup"}>
@@ -31,7 +35,9 @@ const Router = () => {
         </Route>
 
         <Route exact path={"/cart"}>
-          <MyCartPage />
+          <ChakraProvider>
+            <MyCartPage />
+          </ChakraProvider>
         </Route>
 
         <Route exact path={"/profile"}>
@@ -46,12 +52,10 @@ const Router = () => {
           <EditAddressPage />
         </Route>
 
-
         <Route exact path={"/restaurant/:idRest"}>
           <Restaurants />
         </Route>
-    
-    
+
         <Route exact path={"/editProfile"}>
           <EditProfilePage />
         </Route>
