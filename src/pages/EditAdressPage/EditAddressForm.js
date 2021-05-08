@@ -68,7 +68,6 @@ const EditAddressForm = () => {
     };
 
     await addAddress(body, setIsLoading);
-    alert("Endereço atualizado com sucesso! :)");
     goToProfile(history);
   };
 

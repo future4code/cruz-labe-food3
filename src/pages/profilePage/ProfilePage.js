@@ -104,7 +104,7 @@ const ProfilePage = () => {
             <p>{profile.address}</p>
 
             <button onClick={() => goToEditAddressPage(history)}>
-              <img src={EditIcon} alt=""/>
+              <img src={EditIcon} alt="" />
             </button>
           </AddressContainer>
         </DataContainer>

@@ -39,7 +39,6 @@ const EditProfileForm = () => {
     };
 
     await updateProfile(body, setIsLoading);
-    alert("Perfil atualizado com sucesso! :)");
     goToProfile(history);
   };
 
