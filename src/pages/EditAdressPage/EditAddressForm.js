@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { TextField, CircularProgress } from "@material-ui/core";
+import { TextField, CircularProgress, makeStyles } from "@material-ui/core";
 import { SaveButton } from "./styled";
 import { getFullAdress } from "../../services/getFullAdress";
 import { addAddress } from "../../services/addAddress";
 import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import clsx from "clsx";
+
+const useStyles = makeStyles((theme) => ({
+  textField: {
+    width: "100%",
+    margin: "0 auto",
+    marginTop: "16px",
+  },
+}));
 
 const EditAddressForm = () => {
   const history = useHistory();
+  const classes = useStyles();
+
   const [street, setStreet] = useState("");
   const [number, setNumber] = useState("");
   const [complement, setComplement] = useState("");
@@ -84,7 +95,7 @@ const EditAddressForm = () => {
           value={street}
           onChange={onChangeStreet}
           required
-          fullWidth
+          className={clsx(classes.margin, classes.textField)}
         />
 
         <TextField
@@ -97,7 +108,7 @@ const EditAddressForm = () => {
           value={number}
           onChange={onChangeNumber}
           required
-          fullWidth
+          className={clsx(classes.margin, classes.textField)}
         />
 
         <TextField
@@ -109,7 +120,7 @@ const EditAddressForm = () => {
           type={"text"}
           value={complement}
           onChange={onChangeComplement}
-          fullWidth
+          className={clsx(classes.margin, classes.textField)}
         />
 
         <TextField
@@ -122,7 +133,7 @@ const EditAddressForm = () => {
           onChange={onChangeNeighbourhood}
           type={"text"}
           required
-          fullWidth
+          className={clsx(classes.margin, classes.textField)}
         />
 
         <TextField
@@ -135,7 +146,7 @@ const EditAddressForm = () => {
           onChange={onChangeCity}
           type={"text"}
           required
-          fullWidth
+          className={clsx(classes.margin, classes.textField)}
         />
 
         <TextField
@@ -148,7 +159,7 @@ const EditAddressForm = () => {
           value={state}
           onChange={onChangeState}
           required
-          fullWidth
+          className={clsx(classes.margin, classes.textField)}
         />
         <SaveButton type={"submit"}>
           {isLoading ? (

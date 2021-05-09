@@ -1,23 +1,14 @@
 import React from "react";
 import SignUpForm from "./SignUpForm";
 import logo from "../../assets/images/logo-future-eats-invert.png";
-import { MainContainer, Logo, TopText, Header, ArrowContainer } from "./styled";
-import Arrow from "../../assets/images/arrow.svg";
-import { useHistory } from "react-router";
-import { goToLoginPage } from "../../routes/coordinator";
+import { MainContainer, Logo, TopText } from "./styled";
+import Header from "../../components/header/Header";
 
 const SignUpPage = () => {
-  const history = useHistory();
-
   return (
     <div>
-      <Header>
-        <ArrowContainer
-          src={Arrow}
-          onClick={() => goToLoginPage(history)}
-          alt="seta para voltar"
-        />
-      </Header>
+      <Header name={""} />
+
       <MainContainer>
         <Logo src={logo} />
         <TopText>Cadastrar</TopText>

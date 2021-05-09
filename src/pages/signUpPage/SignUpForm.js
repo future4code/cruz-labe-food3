@@ -67,7 +67,7 @@ const SignUpForm = () => {
         clear();
         history.push("/addAddress");
       } else {
-        alert(result.message);
+        console.log(result.message);
       }
     } else {
       setIsValidPassword(true);
@@ -94,11 +94,6 @@ const SignUpForm = () => {
     <div>
       <form onSubmit={onSubmitForm}>
         <TextField
-          // InputProps={{
-          //   inputProps: {
-          //     pattern: "[^-s][a-zA-ZÀ-ú ]",
-          //   },
-          // }}
           name={"name"}
           value={form.name}
           onChange={onChange}

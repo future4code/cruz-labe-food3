@@ -22,7 +22,6 @@ const Restaurant = () => {
   useProtectedPage();
   const [restaurantDetail, setRestaurantDetail] = useState(null);
   const { idRest } = useParams();
-  const history = useHistory();
   const [infoRestaurant, setInfoRestaurant] = useState({});
 
   useEffect(() => {
