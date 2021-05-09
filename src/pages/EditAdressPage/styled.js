@@ -4,13 +4,7 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
-  padding-top: 10px;
-`;
-
-export const TopText = styled.p`
-  margin-top: 28px;
-  margin-bottom: 5px;
+  margin: 50px 20px 20px 20px;
 `;
 
 export const SaveButton = styled.button`

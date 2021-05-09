@@ -8,7 +8,6 @@ export const signUp = async (body, setIsLoading) => {
 
     const { token } = response.data;
     const { hasAddress } = response.data.user;
-    alert("cadastro realizado");
 
     return {
       token,

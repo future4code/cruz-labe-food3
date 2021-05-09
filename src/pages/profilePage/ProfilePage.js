@@ -73,7 +73,7 @@ const ProfilePage = () => {
         return (
           <CardOrder
             key={item.id}
-            totalPrice={item.totalPrice.toFixed(2)}
+            totalPrice={item.totalPrice.toFixed(2).replace(".", ",")}
             restaurantName={item.restaurantName}
             createdAt={formatter.format(item.createdAt)}
           />

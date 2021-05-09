@@ -1,24 +1,15 @@
 import React from "react";
 import AddAddressForm from "./AddAddressForm";
-import { MainContainer, TopText, Header, ArrowContainer } from "./styled";
-import Arrow from "../../assets/images/arrow.svg";
-import { useHistory } from "react-router";
-import { goToLastPage } from "../../routes/coordinator";
+import { MainContainer, TopText } from "./styled";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import Header from "../../components/header/Header";
 
 const AddAddressPage = () => {
   useProtectedPage();
-  const history = useHistory();
 
   return (
     <div>
-      <Header>
-        <ArrowContainer
-          src={Arrow}
-          onClick={() => goToLastPage(history)}
-          alt="seta para voltar"
-        />
-      </Header>
+      <Header name={""} />
       <MainContainer>
         <TopText>Meu endereço</TopText>
         <AddAddressForm />

@@ -1,6 +1,6 @@
 import React from "react";
 import EditAddressForm from "./EditAddressForm";
-import { MainContainer, TopText } from "./styled";
+import { MainContainer } from "./styled";
 import Header from "../../components/header/Header";
 import useProtectedPage from "../../hooks/useProtectedPage";
 
@@ -10,7 +10,6 @@ const EditAddressPage = () => {
     <>
       <Header name={"Endereço"} />
       <MainContainer>
-        <TopText></TopText>
         <EditAddressForm />
       </MainContainer>
     </>

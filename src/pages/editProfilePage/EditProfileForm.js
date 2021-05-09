@@ -6,11 +6,6 @@ import { updateProfile } from "../../services/updateProfile";
 import { goToProfile } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import { getProfile } from "../../services/getProfile";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
-import { useToast } from "@chakra-ui/react";
-import { Box } from "@chakra-ui/react";
-import { ChakraProvider } from "@chakra-ui/react";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -54,13 +49,6 @@ const EditProfileForm = () => {
     setCpf(e.target.value);
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
-  };
-
   useEffect(() => {
     (async () => {
       const result = await getProfile();
@@ -85,7 +73,6 @@ const EditProfileForm = () => {
           variant={"outlined"}
           type={"text"}
           required
-          fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
 
@@ -99,7 +86,6 @@ const EditProfileForm = () => {
           variant={"outlined"}
           type={"text"}
           required
-          fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
 
@@ -113,11 +99,9 @@ const EditProfileForm = () => {
           variant={"outlined"}
           type={"number"}
           required
-          fullWidth
           className={clsx(classes.margin, classes.textField)}
         />
         <SaveButton type={"submit"}>
-          {" "}
           {isLoading ? (
             <CircularProgress color={"inherit"} size={24} />
           ) : (
